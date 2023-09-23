@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Dla atrybutu method z opcją get zamiast post ma miejsce przesłąnie dancyh
+    jako części URL'a i nie jest to bezpieczne, czyli np.
+    https://strona.com/action.php?username=Kaisa&password=tajne123-->
+
+    <!-- Kod taki byłby widoczny dla osób/aplikacji, które mogą nas ewentualnie
+    śledzić/podsłuchiwać -->
+
+    <!-- Bezpieczne jest zastosowanie „post” ponieważ dane są wtedy przesyłane
+    w nagłówkach, czyli w pewnej komunikacji między przeglądarką a serwerem,
+    która nie jest tak widoczna jak w przypadku „get”. -->
+
+    <form action="action.php" method="post" autocomplete="off">
+        <p>
+            <label for="imię">Imię:</label>
+            <input type="text" name="username" value="Jan" id="imię">
+        </p>
+
+        <p>
+            <label for="hasło">Hasło:</label>
+            <input type="password" name="password" placeholder="******" id="hasło">
+        </p>
+
+        <p>
+            <label for="kraj">Kraj:</label>
+            <input type="text" name="country" minlength="3" maxlength="20" placeholder="Polska" id="kraj">
+        </p>
+
+        <p>
+            <button type="submit">Wyślij</button>
+            <button type="reset">Wyczyść formularz</button>
+        </p>
+        
+    </form>
+
+<hr>
+
+    <form action="test.php" method="post" autocomplete="off" enctype="multipart/form-data">
+        <!-- Labele są w tym formularzu pominięte celem przyspieszenia napiasnia kodu -->
+        <p>
+            e-mail: <input type="email" name="email">
+        </p>
+
+        <p>
+            Numer wydziału: <input type="number" name="numer wydziału" min="1" max="8">
+        </p>
+
+        <p>
+            Pole ukryte: dane niewidoczne <input type="hidden" name="ukrytedane" value="12345">
+        </p>
+
+        <p>
+            Plik: <input type="file" name="pictures" accept="image/png, image/jpeg">
+        </p>
+
+        <p>
+            Opis: <textarea name="opis" id="opis" cols="30" rows="10">Zawartość wstawiona domyślnie</textarea>
+        </p>
+
+        <p>
+            <input type="radio" name="color" value="red" id="red">
+            <label for="red">Czerwony</label>
+            
+            <input type="radio" name="color" value="blue" id="blue">
+            <label for="blue">Niebieski</label>
+        </p>
+
+        <p>
+            <label for="sport">Sport:</label>
+            <input type="checkbox" name="hobby" id="sport">
+            
+            <label for="books">Książki:</label>
+            <input type="checkbox" name="hobby" id="books">
+        </p>
+
+        <p>
+            <select name="colours" id="colours">
+                <option value="green">Zielony</option>
+                <option value="yellow">Żółty</option>
+                <option value="black">Czarny</option>
+
+                <optgroup label="Dodatkowe kolory">
+                    <option value="white">Biały</option>
+                    <option value="grey">Szary</option>
+                </optgroup>
+            </select>
+        </p>
+
+        <p>
+            <button type="submit">Wyślij</button>
+            <button type="reset">Wyczyść formularz</button>
+        </p>
+    </form>
+
+</body>
+</html>
