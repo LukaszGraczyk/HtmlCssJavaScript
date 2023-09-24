@@ -98,7 +98,45 @@
             <button type="submit">Wyślij</button>
             <button type="reset">Wyczyść formularz</button>
         </p>
+
     </form>
+
+<hr>
+
+<form action="action.php" method="post" autocomplete="off">
+    <p>
+        <input type="color" name="color" id="user-color">
+    </p>
+
+    <p>
+        <input type="date" name="date">
+    </p>
+
+    <p>
+        <input type="datetime-local" name="datetime-local">
+    </p>
+
+    <p>
+        <fieldset>
+            <legend>Slider</legend>
+            <input type="range" name="age" min="18" max="120">
+        </fieldset>
+    </p>
+
+    <p>
+        Telefon: <input type="tel" name="telephone">
+    </p>
+
+    <p>
+        Url: <input type="url" name="url" pattern="https://.*">
+    </p>
+
+    <p>
+        <button type="submit">Wyślij</button>
+        <button type="reset">Wyczyść formularz</button>
+    </p>
+    
+</form>
 
 </body>
 </html>
