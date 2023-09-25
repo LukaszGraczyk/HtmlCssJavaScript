@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    /* Liczy się kolejność odwołań do klas. Ostateczny rezultat,
+    gdy dla dwóch klas zmieniamy tę samą właściwość, zależy od tego
+    która klasa w kodzie css jest ostatnia i tej właśnie klasy kod
+    będzie zastosowany dla elementu posiadającego dwie klasy */
+      .chapter
+      {
+            color: red;
+      }
+      
+      .first-chapter
+      {
+            color: blue;
+      }
+    </style>
+</head>
+
+<body>
+    <h4>Chapter 1</h4>
+    <!-- element z dwiema klasami -->
+    <p class="first-chapter chapter">Przykładowy tekst</p>
+
+    <!-- element z jedną klasą -->
+    <p class="chapter">Przykładowy tekst</p>
+</body>
+</html>
