@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:checked {outline: 2px solid red;}
+        input:disabled {outline: 2px dotted grey;}
+        input:focus {outline: 1px solid orange;}
+    </style>
+</head>
+<body>
+    <form action="test.php">
+        <input type="checkbox" name="city" id="wawa">
+        <label for="wawa">Warszawa</label>
+        <input type="checkbox" disabled name="city" id="krk">
+        <label for="krk">Kraków</label>
+        <input type="checkbox" name="city" id="gd">
+        <label for="gd">Gdańsk</label>
+    </form>
+</body>
+</html>

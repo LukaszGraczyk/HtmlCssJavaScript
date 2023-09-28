@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*
+        :first-child		pierwszy element listy z nadanym stylem
+        :last-child		    ostatni element listy z nadanym stylem
+        :nth-child(3n)		co trzeci element listy z nadanym stylem
+        :nth-child(2)		drugi element listy z nadanym stylem
+        :nth-child(odd)		parzyste elementy listy z nadanym stylem
+        :nth-child(even)	nieparzyste elementy listy z nadanym stylem
+        */
+
+        ul li:first-child {text-decoration: underline;}
+        li:last-child {text-decoration: underline;}
+        li:nth-child(3n) {color: red;}
+        li:nth-child(2) {color: green;}
+        li:nth-child(odd) {background-color: grey;}
+        li:nth-child(even) {background-color: yellow;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>przykładowy tekst nr 1</li>
+        <li>przykładowy tekst nr 2</li>
+        <li>przykładowy tekst nr 3</li>
+        <li>przykładowy tekst nr 4</li>
+        <li>przykładowy tekst nr 5</li>
+        <li>przykładowy tekst nr 6</li>
+        <li>przykładowy tekst nr 7</li>
+        <li>przykładowy tekst nr 8</li>
+        <li>przykładowy tekst nr 9</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* W powyższym kodzie styl jest nadany przykładowemu tekstowi nr 3
+        ponieważ zastosowane zostały selektory dla elementów znajdujących się
+        w paragrafie, który występuje wewnątrz znacznika <div> i który jest
+        klasy „test” oraz w atrybucie class posiada fragment tekstu „PL”. */
+
+        div p.test[class *= "PL"] {background: green;}
+    </style>
+</head>
+<body>
+    <div>
+        <p class="PL">Lorem ipsum dolor sit.</p>
+        <p class="PL-pl">Lorem ipsum dolor sit.</p>
+        <p class="PLN test">Lorem ipsum dolor sit.</p>
+        <p class="USD test">Lorem ipsum dolor sit.</p>
+    </div>
+</body>
+</html>

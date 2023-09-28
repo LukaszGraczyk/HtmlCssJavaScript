@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Pseudoklasa :not wybiera elementy niespełniające warunków selektora */
+        input:not(.pierwsza-klasa):not(.druga-klasa) {background-color: yellow;}
+        input:not([type = "email"]) {background-color: grey;}
+    </style>
+</head>
+<body>
+    <input type="text" class="pierwsza-klasa" value="1">
+    <input type="text" class="druga-klasa" value="2">
+    <input type="email" value="testowymail@nazwa.com">
+</body>
+</html>

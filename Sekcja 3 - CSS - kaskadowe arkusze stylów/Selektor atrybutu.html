@@ -5,14 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        [data-red]
-        {
-            background-color: red;
-        }
-        [data-color="orange"]
-        {
-            background-color: orange;
-        }
+        /*
+        Jeżeli w kodzie CSS zastosujemy zapis [atrybut *= "wartość"]
+        to dany styl zostanie zastosowany do wszystkich elementów html,
+        które posiadają wartość dowolnego atrybutu, która wynosi „wartość”,
+        nawet jeżeli jest częścią dłuższej nazwy wartości
+        i wielkość liter ma znaczenie.
+
+        Jeżeli w kodzie CSS zastosujemy zapis [atrybut ~= "wartość"]
+        to dany styl zostanie zastosowany do wszystkich elementów html,
+        które posiadają wartość dowolnego atrybutu, która wynosi „wartość”,
+        nawet jeżeli jest fragmentem dłuższej nazwy wartości,
+        ale przy jednoczesnym oddzieleniu wyrazów spacjami.
+        
+        Jeżeli w kodzie CSS zastosujemy zapis [atrybut |= "wartość"] to dany styl
+        zostanie zastosowany do wszystkich elementów html, które posiadają wartość
+        atrybutu, która wynosi „wartość”, nawet jeżeli jest fragmentem dłuższej nazwy
+        wartości, ale przy jednoczesnym oddzieleniu wyrazów myślnikami lub spacją.
+
+        Jeżeli w kodzie CSS zastosujemy zapis [atrybut = "wartość" i] to dany styl
+        zostanie zastosowany do wszystkich elementów html, które posiadają wartość
+        atrybutu, która wynosi „wartość” przy czym ignorowana jest wielkość znaków.
+        */
+
+        [data-red]{background-color: red;}
+        [data-color="orange"]{background-color: orange;}
+        [data-color*="#"]{background-color: green;}
+        [data-color~="!"]{background-color: yellow;}
+        [data-color|="blue"]{background-color: blue;}
+        [data-color="grey" i]{background-color: grey;}
+
     </style>
 </head>
 <body>
@@ -20,7 +42,10 @@
         <ul>
             <li data-red>Lorem ipsum dolor sit.</li>
             <li data-color="orange">Lorem ipsum dolor sit.</li>
-            <li>Lorem ipsum dolor sit.</li>
+            <li data-color="blue-black">Lorem ipsum dolor sit.</li>
+            <li data-color="gReY">Lorem ipsum dolor sit.</li>
+            <li data-color="?@#$">Lorem ipsum dolor sit.</li>
+            <li data-color="?@$ !">Lorem ipsum dolor sit.</li>
         </ul>
     </article>
 </body>
