@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        Pseudoelementy służą do nadania stylu specyficznym częściom elementów np.
+        ::first-letter - nadanie stylu pierwszej literze
+        ::first-line - nadanie stylu pierwszej linii
+        ::selection - nadanie stylu tekstowi zaznaczonemu przez użytkownika
+        */
+        p::first-letter {font-style: italic;}
+        div::first-line {color: red;}
+        article::selection {background: yellow;}
+
+        /*
+        Pseudoelementy mogą służyć do dodania treści przed i po danym elemencie np.
+        ::before - dodaje treść przed określonym elementem
+        ::after - dodaje treść za określonym elementem
+        */
+
+        li::after {content: "XYZ"; border: 2px solid red;}
+        p::before {content: "123";}
+
+        /* Wyłączenie stylu punktowania listy */
+        ul {list-style-type: none;}
+
+        /* Zastosowanie elementu unicode jako punktora listy */
+        li:before {content: "✅";}
+
+    </style>
+</head>
+<body>
+<article>przykładowy tekst</article>
+<div>przykładowy tekst</div>
+<p>przykładowy tekst</p>
+<ul>
+    <li>przykładowy tekst</li>
+    <li>przykładowy tekst</li>
+</ul>
+</body>
+</html>
