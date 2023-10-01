@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* Kaskada to zestaw reguł decydujących o tym jak rozwiązać konflikty,
+        które występują w naszym kodzie CSS. Gdy zachodzi konflikt między
+        deklaracjami to żeby je rozróżnić kaskada bierze pod uwagę trzy elementy
+        według następującej kolejności:
+
+        - Pochodzenie arkusza stylów np. domyślne style przeglądarki,
+        zdefiniowane przez twórcę strony itd.
+        - Specyficzność selektorów, określenie ich kolejności
+        względem siebie, który uznać za pierwszy.
+        - Kolejność źródłowa w arkuszu stylów.
+
+        Te zasady pozwalają zdecydować, która reguła zwycięży,
+        gdy istnieje konflikt. */
+
+        /* Gdy kod CSS określa na kilka różnych sposobów jaki styl ma zostać
+        zastosowany dla danego elementu, to powstaje konflikt. Poniżej widzimy
+        sytuację gdzie rozwiązanie konfliktu następuje poprzez zastosowanie stylu
+        o najwyższym priorytecie. Kolor czcionki jest niebieski ponieważ największy
+        priorytet z pośród selektora typu, selektora id i selektora klasy
+        ma selektor identyfikatora: */
+
+        h2 {color: red;}
+        #heading {color: blue;}
+        .article-title {color: yellow;}
+    </style>
+
+    <h2 id="heading" class="article-title">Nagłówek</h2>
+</body>
+</html>
