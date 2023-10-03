@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Trzeci slot od prawej strony jest ważniejszy od drugiego
+        i pierwszego, jest to medal złoty. Jego wartość rośnie o jeden
+        za każdym razem gdy pojawia się selektor identyfikatora. */
+
+        p #word {color: red;}                       /* 0 1 0 1 */
+        #paragraph #word {color: blue;}             /* 0 2 0 0 */
+        span.small-text[data-color] {color: green;} /* 0 0 2 1 */
+
+        /* Dwa złote medale powodują wygraną koloru niebieskiego czcionki.
+        Jeżeli mamy tyle samo medali złotych i srebrnych to przeważa
+        większa ilość medali brązowych itp. */
+    </style>
+</head>
+<body>
+    <p id="paragraph">
+        Przykładowy <span id="word" data-color="red" class="small-text">tekst</span> testowy
+    </p>
+</body>
+</html>

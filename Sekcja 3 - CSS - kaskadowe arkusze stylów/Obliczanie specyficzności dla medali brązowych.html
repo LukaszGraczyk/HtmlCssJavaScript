@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Skrajnie prawy slot ma najwyższą wartość, określa się go
+        pierwszym slotem oraz medalem brązowym. Jego wartość powiększa się
+        z każdym kolejnym znacznikiem w selektorze jak widzimy poniżej. */
+        
+        p {color: silver;}                      /* 0 0 0 1 */
+        p span {color: blue;}                   /* 0 0 0 2 */
+        article > section p span {color: red;}  /* 0 0 0 4 */
+    
+        /* Im wyższa wrtość slotu tym specyficzność jest większa.
+        W powyższym kodzie odnoszącym się do tego samego elementu
+        w <span> wygra ostatnia reguła ponieważ 4 brązowe medale
+        mają większą wartoś niż 2 czy 1 brązowy medal. */
+    </style>
+</head>
+
+<body>
+    <article>
+        <section>
+            <p>Przykładowy <span>testowy</span> tekst</p>
+        </section>
+    </article>
+</body>
+</html>

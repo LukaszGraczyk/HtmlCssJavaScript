@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Drugi slot od prawej strony jest ważniejszy od pierwszego,
+        jest to medal srebrny. Jego wartość rośnie o jeden za każdym razem
+        gdy pojawia się selektor: klasy , atrybutu , pseudoklasy */
+
+        .small-text:first-child {color: blue;}              /* 0 0 2 0 */
+        .box .small-text[data-color="red"] {color: red;}    /* 0 0 3 0 */
+        .small-text {color: green;}                         /* 0 0 1 0 */
+
+        /* Trzy srebrne medale powodują wygraną koloru czerwonego czcionki. */
+    </style>
+</head>
+<body>
+    <p class="box content">
+        Przykładowy <span data-color="red" class="small-text">tekst</span> testowy
+    </p>
+</body>
+</html>
