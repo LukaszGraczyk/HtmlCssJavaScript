@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a {color: blue;}
+        header {color: green;}
+        header a {color: inherit;}  /* Tu kolor czcionki będzie zielony */
+        header p {color: initial;}  /* Tu kolor czcionki będzie domyślny */
+
+        /* Polecenie initial powoduje użycie domyślnej dla przeglądarki
+        wartości koloru. */
+
+        /* Polecenie inherit powoduje wymuszenie dziedziczenia ponad
+        priorytet kaskady */
+
+    </style>
+    <header>
+        <h2>Witamy na stronie</h2>
+        <ul>
+            <li><a href="#">Strona główna</a></li>  <!-- Kolor czcionki będzie zielony -->
+            <li><a href="#">Blog</a></li>           <!-- Kolor czcionki będzie zielony -->
+        </ul>
+        <p>Testowy tekst</p>                        <!-- Kolor czcionki będzie domyślny -->
+    </header>
+</body>
+</html>

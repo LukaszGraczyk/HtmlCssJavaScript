@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* Przesłonięcie dziedziczenia:
+        Gdy wprowadzamy kaskadę to przesłania ona zależności
+        dziedziczenia styli. Staje się nadrzędna nad mechanizmem
+        dziedziczenia. Nie następuje w takim przypadku dziedziczenie
+        domyślnego stylu. Jeżeli mamy element html będący dzieckiem innego
+        elementu i został nadany mu styl w kodzie CSS odnoszący się konkretnie
+        tylko do niego, to element ten nie dziedziczy stylu po rodzicu, tylko
+        pomija dziedziczenie i stosuje styl z kodu CSS. */
 
+        article
+        {
+            font-family: Verdana;
+            font-style: italic;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -19,3 +33,33 @@
     </aside>
 </body>
 </html>
+
+<!--
+Dziedziczenie po rodzicu:
+Dziedziczenie wartości właściwości CSS polega na tym, że niektóre style mogą
+zostać odziedziczone jeżeli dzieci elementów nie mają wartości kaskadowej
+i wtedy wartość dziedziczą po rodzicu. Dotyczy to części właściwości CSS,
+przeważnie związanych z czcionkami, właściwościami list, ułożeniem tekstu
+na elemencie, właściwościami obramowania tabel i innymi pomniejszymi stylami.
+-->
+
+<!-- Właściwości dziedziczone i niedziedziczone:
+Aby sprawdzić czy dana właściwość podlega dziedziczeniu czy nie,
+można wejść np. na stronę Mozilla Developer Network. Jest to portal
+skupiający wiedzę dotyczącą html, CSS oraz JS. Najważniejsze style,
+które są dziedziczone to:
+
+border-collapse		font-stretch		text-align-last
+border-spacing		font			    text-decoration-color
+caption-side		letter-spacing		text-indent
+color			    line-height		    text-justify
+cursor			    list-style-image	text-shadow
+direction		    list-style-position	text-transform
+empty-cells		    list-style-type		visibility
+font-family		    list-style		    white-space
+font-size		    orphans		        widows
+font-style		    quotes			    word-break
+font-variant		tab-size			word-spacing
+font-weight		    text-align		    word-wrap
+font-size-adjust
+ -->
