@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content {
+            font-size: 18px;              /* Wielkość czcionki */
+            border: 3px solid red;      /* Szerokość, rodzaj i kolor obramowania */
+        }
+
+        div.test {
+            background: green;          /* Kolor tła */
+            width: 200px;                 /* Szerokość tła */
+            height: 40px;                 /* Wysokość tła */
+            padding: 5px;
+            margin: 12px;
+            color: black;               /* Kolor czcionki */
+            border: 3px solid blue;
+        }
+
+        article {
+            background: red;            /* Kolor tła */
+            width: 70%;                   /* 70% szerokości elementu nadrzędnego czyli div */
+            height: 55%;                  /* 55% wysokości elementu nadrzędnego czyli div */
+        }
+    </style>
+</head>
+<body>
+    <p id="content">Testowy tekst</p>
+    <div class="test">
+        Testowy tekst
+        <article>Testowy tekst</article>
+    </div>
+</body>
+</html>
+
+<!-- Właściwości CSS padding służą do generowania przestrzeni wokół zawartości
+elementu, wewnątrz dowolnych zdefiniowanych granic. Właściwości CSS margin służą
+do tworzenia przestrzeni wokół elementów, poza zdefiniowanymi granicami.
+Istnieją właściwości umożliwiające ustawienie marginesu dla każdej strony
+elementu: górny, prawy, dolny i lewy. -->
