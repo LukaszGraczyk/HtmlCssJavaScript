@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Jednostki względne jek em określają wielkość względem innego elementu,
+        w przeglądarce to będzie domyślna wielkość czcionki np. 16px, która
+        jest dziedziczona po <body> */
+        
+        article p {font-size: 1.2em;} /* 16px x 1.2 = 19.2px */
+        p span {font-size: 1.25em;}   /* 19.2px x 1.25 = 24px ponieważ span dziedziczy po p */
+    </style>
+</head>
+<body>
+    <article>
+        <h1> Naglówek </h1>
+        <p><span> Autor: Łukasz </span></p>
+        <p>Testowy tekst</p>
+        <p>Testowy tekst</p>
+    </article>
+</body>
+</html>

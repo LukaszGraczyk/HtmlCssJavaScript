@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {font-size: 16px;}
+        ul {font-size: 0.8em;}
+        ul ul {font-size: 1em;} /* Mechanizm znoszący zmniejszanie się czcionki dla potomka */
+    </style>
+
+    <ul>
+        <li>Poziom 1
+            <ul>
+                <li>Poziom 2
+                    <ul>
+                        <li>Poziom 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+<!-- Ponieważ poprzez zagnieżdżenie znacznik <ul> występuje wielokrotnie
+na coraz to kolejnych poziomach, to w wyniku mechanizmu dziedziczenia
+jednostka względna em powoduje każdorazowe zmniejszanie się czcionki,
+na każdym poziomie. -->
