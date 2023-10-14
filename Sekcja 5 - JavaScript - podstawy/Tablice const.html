@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* Nawet jeśli tablica lub obiekt są const, to można
+        nadpisywać pojedyńcze wartości, które się wewnątrz nich znajdują.
+        Const ogranicza się do tego, że nie można stałej nadpisać nową
+        całą tablicą lub nowym całym obiektem. */
+
+        const primitives = ["string", "number", "bigint", 
+        "boolean", "null", "undefined", "symbol"];
+        console.log(primitives);
+
+        primitives[0] = "string !!!";
+        console.log(primitives);
+        
+    </script>
+</body>
+</html>

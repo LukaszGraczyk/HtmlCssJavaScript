@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Tablice to specjalne obiekty przechowujące różne dane.
+        Do poszczególnych wartości możemy dostać się dzięki indeksom
+        oraz nawiasom kwadratowym. */
+
+        // Wpisywanie danych do tablicy
+        let names = ["Asia", "Kasia", "Karol"];
+        
+        // Wywołanie w konsoli poszczególnych wartości z tablicy
+        console.log(names[0]);
+        console.log(names[2]);
+        console.log(names[names.length-1]);
+
+        // Wprowadzanie i nadpisywanie pojedyńczych wartości do tablicy
+        names[3] = "Kuby";
+        names[1] = "Ola";
+
+        // Wywoływanie w konsoli całej zawartości tablicy
+        console.log(names);
+
+        /* Przechowanie wartości całkowicie różnych typów
+        np. liczbowe, logiczne, tekstowe i obiekty */
+        let data = [1, true, "Marek", {a: "test"}];
+        console.log(data);
+
+
+    </script>
+</body>
+</html>
