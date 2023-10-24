@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // Operatory porównania
+        console.log(1<2);
+        console.log(1<=2);
+        console.log(3>2);
+        console.log(3>=2);
+        console.log(3==3);
+        console.log(3!=2);
+
+        /*
+        Operatory równości w przypadku zmiennych powodują, że przypisując
+        wartość jednej zmiennej (np. a) innej zmiennej (np. b), tworzy się
+        kopia tej wartości w pamięci. Czyli są to dwa oddzielne elementy
+        w pamięci.
+        */
+
+        let a = 5; // Wartość 5
+        let b = a; // Wartość 5, kopia
+
+        /*
+        Operatory równości w przypadku sprawdzania obiektów tylko stwierdzają,
+        czy dwa obiekty mają ten sam adres w pamięci. Uchwyty do obiektów mogą być
+        przechowywane w wielu zmiennych i stałych, bo to typ złożony a nie prymityw.
+        */
+
+        // Obie zmienne obj1 i obj2 wskazują na ten sam obiekt
+        let obj1 =
+        {
+            data: 20,
+            age: 30,
+            tel: 123456789
+        };
+        let obj2 = obj1;
+
+        // Wartość true ponieważ zmienne obj1 i obj2 wskazują na ten sam obiekt
+        console.log(obj1 == obj2);
+
+    </script>
+</body>
+</html>

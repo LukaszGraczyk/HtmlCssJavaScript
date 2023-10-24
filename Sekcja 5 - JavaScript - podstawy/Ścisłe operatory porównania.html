@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Luźne porównanie ==, w którym następuje automatyczna konwersja
+        na jeden wspólny typ, czyli łańcuch znaków został zamieniony
+        na liczbę. Jest to konwersja wymuszona przez porównanie.
+        */
+        console.log(4 == "4"); // Konsola zwraca wartość true
+
+
+        /*
+        Ścisłe operatory porówniania === sprawdzają zarówno czy obie wartości
+        są równe oraz czy ich typ jest taki sam. Jeżeli wartości są takie same
+        ze względu na automatyczną konwersję, ale typy się nie zgadzają,
+        to zwrócone zostanie false.
+        */
+        console.log(4 === "4"); // Konsola zwraca wartość false
+
+
+    </script>
+</body>
+</html>

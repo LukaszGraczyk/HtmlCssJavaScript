@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Unary operators, czyli operatory jednoargumentowe przyjmujące
+        pojedynczy operand.
+        */
+
+        // Operator ++ oraz --
+        let a = 10;
+        a++;            
+        console.log(a);
+
+        // Operator delete
+        let obiekt1 = {age: 19, name: "Anna"};
+        delete obiekt1.age;
+        console.log(obiekt1);
+
+        // Operator + oraz -
+        let b = "20" + 10;
+        console.log(b);
+
+        b = +"20" + 10; // + powoduje konwersję łańcucha do liczby
+        console.log(b);
+
+    </script>
+</body>
+</html>

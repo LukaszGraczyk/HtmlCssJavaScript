@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        Relational operators, czyli operatory relacyjne porównują operandy
+        i zwracają true jeżeli spełnione jest porównanie.
+        */
+
+        // Operator in
+        let obiekt = { data: "a" };
+        if ("data" in obiekt) console.log("Data jest w obiekt")
+
+        let tablica = [1,2,3,4,5];
+        if (2 in tablica) console.log("2 jest w tablica");
+
+        // Operator instanceof
+        let date = new Date(2030, 11, 24);
+        console.log(date);
+        if (date instanceof Date) console.log("Jest to instancja z Date")
+
+    </script>
+</body>
+</html>
