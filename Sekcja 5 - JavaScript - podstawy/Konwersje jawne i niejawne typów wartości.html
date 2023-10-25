@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Koercja to automatyczna konwersja typu wartości w JavaScript
+        gdy wymaga tego konkretna sytuacja.
+        */
+
+        // Konwersje jawne
+        let str = String(22);           // Konwersja z liczby na łańcuch znaków
+        console.log(typeof str);        // Konsola podaje string
+
+        let number = parseInt("123")   // Konwersja ze string na liczbę
+        console.log(number);           // Konsola zwraca 123
+
+        // Konwersje niejawne czyli koercje
+        let data = "test" + 10;         // Następuje konwersja niejawna do string
+        console.log(data);              // Konsola zwraca test10
+
+        let x = -"10";                  // Następuje konwersja niejawna do liczby
+        console.log(x);                 // Konsola zwraca -10
+        console.log(typeof x);          // Konsola zwraca number
+
+    </script>
+</body>
+</html>

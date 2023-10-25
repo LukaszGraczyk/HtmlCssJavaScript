@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Zmienna lub stała niezadeklarowana undeclared to taka,
+        która nie była powołana do życia za pomocą let, var lub const.
+
+        Zmienna niezdefiniowana undefined to taka, która została utworzona
+        ale przypisanej wartości początkowej.
+
+        Zmienna lub stała zadeklarowana jest utworzona z let, var lub const,
+        a gdy ma przypisaną wartość to jest dodatkowo zdefiniowana.
+        */
+
+        let a;              // Zmienna zadeklarowana ale niezdefiniowana 
+        console.log(a);     // Konsola zwraca undefined
+
+        let b  = 4;         // Zmienna zadeklarowana i zdefiniowana 
+        console.log(b);     // Konsola zwraca 4
+
+        c;                  // Zmienna niezadeklarowana i niezdefiniowana
+        console.log(c);     // Konsola zwraca Uncaught ReferenceError: c is not defined
+    </script>
+</body>
+</html>

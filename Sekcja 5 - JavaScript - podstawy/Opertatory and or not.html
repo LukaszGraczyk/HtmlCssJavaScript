@@ -27,6 +27,10 @@
         console.log(!false);            // Konsola zwróci true
         console.log(!true);             // Konsola zwróci false
 
+        // Negacja najpierw wymusza automatyczną konwersję liczby 1 do boolean true
+        console.log(!1);                // Konsola zwróci false
+        console.log(!!1);               // Konsola zwróci true bo podwójna negacja
+
     </script>
 </body>
 </html>

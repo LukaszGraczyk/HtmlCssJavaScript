@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Zmienne globalne mają zasięg dostępności w całym programie.
+        Zmienne lokalne mają zasięg dostępności w danym bloku kodu,
+        przykładowo tylko wewnątrz instrukcji if. Wewnątrz bloku kodu
+        zmienna lokalna o nazwie takiej samej jak zmienna globalna,
+        znajdująca się poza tym blokiem dokonuje przesłonięcia
+        zmiennej globalnej.
+        */
+
+        let a = 10;
+        const name = "Asia";
+
+        if (true)
+        {
+            let b = 100;    // Zmienna lokalna wewnątrz bloku instrukcji if
+            console.log(b); // Jest dostęp do zmiennej lokalnej b z wnętrza bloku
+            console.log(a); // Jest dostęp do zmiennej globalnej a z wnętrza bloku
+            
+            // Stała name lokalna przesłania stałą name globalną
+            const name = "Kasia";
+            // Odwołanie się do stałej name powoduje wywołanie stałej lokalnej
+            console.log(name);
+        }
+
+        // console.log(b);  // Nie ma dostępu do zmiennej lokalnej b z zewnątrz bloku
+
+        /*
+        Odwołanie się do stałej name poza blokiem if powoduje wywołanie
+        stałej globalnej name, czyli w konsoli otrzymujemy Asia.
+        */
+        console.log(name);
+
+    </script>
+</body>
+</html>
