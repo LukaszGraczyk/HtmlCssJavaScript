@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Zanim w ES2015/ES6 wprowadzono let i const w JavaScript mieliśmy tylko
+        dostępne var do powoływania zmiennych. Zmienna var nie ma zasięgu blokowego.
+        Nieważne czy użyjemy var wewnątrz, czy na zewnątrz bloku kodu, zawsze mamy
+        dostęp do takiej zmiennej zaróno w wnętrza bloku jak i z zewnątrz bloku kodu. 
+        Zmienna var wewnątrz bloku nadpisuje wartość zmiennej o tej samej nazwie,
+        gdy taka jest wcześniej powołana do życia poza blokiem.
+        */
+
+        var a = 10;
+
+        if (true)
+        {
+            console.log(a);     // Konsola zwraca wartość 10
+            var a = 20;
+            console.log(20);    // Konsola zwraca wartość 20
+            var b = 30;
+            var a = 40;
+        }
+
+        console.log(b);         // Konsola zwraca wartość 30
+        console.log(a);         // Konsola zwraca wartość 40
+
+    </script>
+</body>
+</html>
