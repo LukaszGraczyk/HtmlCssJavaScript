@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Funkcje mogą zawierać również obiekty.
+        */
+
+        // Funkcja z parametrami tworząca i zwracająca obiekt
+        function createUser(name, email, city)
+        {
+            if (name.lenght < 3) return null;
+            if (email.lenght < 6) return null;
+            if (email.indexOf("@") < 0) return null;
+            if (city.lenght < 3) return null;
+        
+            let obiekt =
+            {
+                name: name,
+                email: email,
+                city: city,
+                type: "employee"
+            };
+
+            return obiekt;
+        }
+
+        // Utworzenie obiektu za pomocą funkcji oraz jego pokazanie w konsoli
+        let user1 = createUser("Anna", "anna@domenapocztowa.com", "Warszawa");
+        console.log(user1);
+
+    </script>
+</body>
+</html>
