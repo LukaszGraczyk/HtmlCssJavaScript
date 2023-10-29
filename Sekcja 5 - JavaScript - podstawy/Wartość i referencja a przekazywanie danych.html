@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Prymitywy przekazywane są przez kopię, zaś obiekty przez referencję,
+            czyli przez uchwyt do miejsca w pamięci gdzie znajduje się obiekt.
+            Obiekty zatem mogą być zmieniane po przekazaniu do funkcji.
+        */
+
+        function wiekOsoby(wiek, obiektOsoba)
+        {
+            wiek = 26;
+            console.log(wiek);          // Konsola zwraca 26 bo zmienna lokalna czyli kopia
+
+            obiektOsoba.imie = "Ola";   // Konsola zwraca Ola ponieważ obiet przekazywany
+            console.log(obiektOsoba);   // poprzez referencje bez tworzenia kopii                         
+        }
+
+        let iloscLat = 24;
+        let kobieta = {imie: "Anna"};
+
+        wiekOsoby(iloscLat, kobieta);
+
+        console.log(iloscLat);          // Konsola zwraca 24 ponieważ zmienna jest poza funkcją
+        console.log(kobieta);           // Konsola zwraca Ola
+
+    </script>
+</body>
+</html>

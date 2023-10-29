@@ -10,9 +10,24 @@
         /*
         Obiekt arguments w funkcji posiada przekazane argumenty przy wywołaniu
         funkcji. Obiekt ten dostępny jest tylko w zwykłych funkcjach, nie ma go
-        w funkcjach strzałkowych.
+        w funkcjach strzałkowych. Nawet jeżeli funkcja nie posiada parametrów,
+        to gdy mimo to przekazujemy jej argumenty wywołując ją, to te argumenty
+        zostają zapamiętywane w obiekcie arguments.
         */
 
+        function sumaLiczb()
+        {
+            let suma = 0;
+            for (let i = 0; i < arguments.length; i++)
+            {
+                suma += arguments[i];
+            }
+            return suma;
+        }
+
+        // Rezultatem jest suma przekazanych argumentów
+        let wynik = sumaLiczb(1,2,3,4,5,6,7,8,9);
+        console.log(wynik);
         
     </script>
 </body>

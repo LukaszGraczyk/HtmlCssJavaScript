@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Domyślen argumenty funkcji dostępne są
+        od momentu pojawienia się EcmaScript2015 ES6.
+        */
+
+        function createUser(name = "unknown", email = "unknown")
+        {
+            return {            // Zwracany jest obiekt
+                name: name,
+                email: email
+            };
+        }
+
+        // Tworzony jest obiekt z jednym argumentem zamiast z dwoma.
+        let user1 = createUser("Ania");
+
+        // Brak drugiego argumentu powoduje wyświetlenie wartości domyślnej "unknown".
+        console.log(user1);          
+
+    </script>
+</body>
+</html>
