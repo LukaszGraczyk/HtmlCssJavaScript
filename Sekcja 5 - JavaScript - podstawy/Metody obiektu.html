@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Metody to wewnętrzne funkcje obiektu, które zwykle operują
+        na danych tego obiektu. Metoda odwołuje się do danych swojego
+        obiektu za pomocą this.nazwaZmiennej.
+        */
+
+        let phone = {
+            brand: "Sony",
+            model: "Xperia",
+            manufactureDate: 2023,
+            connect: function (message) // Funkcja w obiekcie, czyli metoda.
+            {
+                console.log("Łączę się i przekazuje: " + message);
+            },
+            getInfo: function ()
+            {
+                console.log(this.brand, this.model);
+            }
+        }
+
+        // Wywołanie metod.
+        phone.connect("Hello!");
+        phone.getInfo();
+    </script>
+</body>
+</html>

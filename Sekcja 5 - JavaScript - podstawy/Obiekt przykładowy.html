@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let carFactory = {
+            name: "Tesla",
+            city: "Toronto",
+            employees: [],      // Tablica z pracownikami
+            addEmploee: function (name, surname) { // Wyrażenie funkcyjne dodające osobę
+                const obj = {   // Obiekt w obiekcie
+                    name: name,
+                    surname: surname,
+                    email: `${name.toLowerCase()}.${surname.toLowerCase()}@example.com`
+                    // W emailu stosujemy literał szablonu
+                };
+
+                // Zmienna index zliczająca ilość pracowników w tablicy
+                let index = this.employees.length;
+
+                // Dodawanie pracowników do tablicy employees
+                this.employees[index] = obj;
+            },
+            showEmploee: function () { // Wyrażenie funkcyjne pokazujące danego pracownika
+                console.log(this.name, "employees");
+
+                for (let i = 0 ; i < this.employees.length ; i++) {
+                    const e = this.employees[i];
+                    console.log(e.name, e.surname, e.email);
+                }
+            }
+        };
+
+        // Dodawanie pracowników
+        carFactory.addEmploee("Kasia","Kowalska");
+        carFactory.addEmploee("Ola","Nowak");
+        carFactory.addEmploee("Ala","Nowicka");
+
+        console.log(carFactory.employees); // Pokazanie tablicy z pracownikami
+
+        carFactory.showEmploee(); // Pokazanie listy z pracownikami
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Operator spread w postaci trzech kropek ... rozbija tablicę lub obiekt
+        na pojedyncze wartości.
+        */
+
+        function funkcjaTestowa(a,b,c)
+        {
+            console.log(arguments);
+        }
+
+        let tab = [99,100,101];
+        funkcjaTestowa(...tab); // Przekazano argumenty z rozbitej tablicy tab
+
+        let obiektTestowy = {
+            name: "Jan",
+            city: "Warszawa"
+        };
+
+        let osoba = {
+            ...obiektTestowy, // Tu przekazano rozbite elementy składowe z obiektTestowy
+            tel: 123456789,
+            email: "jan@kowalski.com"
+        };
+
+        console.log(osoba);
+
+    </script>
+</body>
+</html>
