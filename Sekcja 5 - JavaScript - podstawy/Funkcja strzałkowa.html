@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        Funkcja strzałkowa czyli arrow function, to skrócony zapis
+        funkcji dodany od wersji EcmaScript2015/ES6 JavaScript'u.
+        */
+
+        // Funkcja zwykła
+        function Sposob1(a,b) 
+        {
+            return a * b
+        };
+        console.log(Sposob1(2,2));      // Wynik działania 2x2=4
+
+        // Funkcja strzałkowa
+        let Sposob2 = (a,b) => a * b;
+        console.log(Sposob2(2,2));      // Wynik działania 2x2=4
+
+        // Funkcja strzałkowa z normalnym ciałem funkcji
+        let Sposob3 = (a,b) =>
+        {
+            return a * b;
+        }
+        console.log(Sposob3(2,2));      // Wynik działania 2x2=4
+
+
+    </script>
+</body>
+</html>
