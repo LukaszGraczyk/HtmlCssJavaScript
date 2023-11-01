@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Funkcja strzałkowa nie ma dostępu do obiektu arguments,
+        ale można użyć dla niej operatora rest.
+        */
+
+        // Zastosowanie operatora rest w funkcji strzałkowej
+        let pokazArgumenty = (...parametry) => console.log(parametry);
+
+        // Wywołanie funkcji strzałkowej
+        pokazArgumenty(1,2,3,4);
+
+        // Sposób nr 1 zwrócenia obiektu z funkcji strzałkowej
+        let obiekt = (data) => {
+            return {
+                data: data
+            };
+        }
+        // Podgląd zwróconego obiektu z zawartością "Anna"
+        console.log(obiekt("Anna"));
+
+        // Sposób nr 2 zwrócenia obiektu z funkcji strzałkowej bez return
+        let obiekt2 = (data) => ({data: data});
+
+        // Podgląd zwróconego obiektu z zawartością "Ula"
+        console.log(obiekt("Ula"));
+
+    </script>
+</body>
+</html>
