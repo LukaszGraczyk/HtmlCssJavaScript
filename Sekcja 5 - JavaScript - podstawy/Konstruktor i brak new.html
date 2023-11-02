@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Wywołanie konstruktora bez new sprawia, że this będzie obiektem window,
+        czego kategorycznie należy unikać.
+        */
+
+        function Car (brand, model) {
+            this.brand = brand;
+            this.model = model;
+            this.color = "Blue";
+
+            this.printInfo = function () {
+                console.log(this.brand, this.model, this.color);
+            }
+        }
+
+        // Wywołujemy konstruktor bez new
+        let car1 = Car("Ford", "Mustang");
+        console.log(car1);
+
+        // Tu widzimy, że elementy this są w obiekcie window
+        console.log(window.brand); // Konsola zwraca Ford
+        window.printInfo(); // Konsola zwraca Ford Mustang Blue
+
+        /*
+        Aby zabezpieczyć się przed wywołaniem konstruktora bez new należy zastosować
+        poniższy zabieg z instrukcją if.
+        */
+
+        function Vehicle (brand, model) {
+            if (this instanceof Vehicle == false) {
+                return new Vehicle(brand, model);
+            }
+            
+            this.brand = brand;
+            this.model = model;
+            this.color = "Orange";
+
+            this.printInfo = function () {
+                console.log(this.brand, this.model, this.color);
+            }
+        }
+
+        // Wywołujemy konstruktor bez new
+        let vehicle1 = Vehicle("Fiat", "Tipo");
+        console.log(vehicle1); // Konsola prawidłowo pokazuje obiekt
+
+        // Wywołujemy konstruktor
+        let vehicle2 = new Vehicle("Fiat", "Panda");
+        console.log(vehicle2);
+
+    </script>
+</body>
+</html>

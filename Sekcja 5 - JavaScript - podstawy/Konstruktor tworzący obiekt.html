@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Obiekty oprócz literału obiektu mogą być tworzone poprzez konstruktor.
+        Konstruktor jest specjalną funkcją pewnego szablonu na bazie którego
+        powstaje obiekt. Stworzenie nowej instancji obiektu, czyli nowego
+        egzemplarza będzie wymagało użycia słowa kluczowego new. Nazwy
+        konstruktorów piszemy z dużej litery.
+        */
+
+        let date = new Date();
+        console.log(date.getHours()); // Pokazana zostaje w konsoli godzina bez minut
+
+        // Tworzenie konstruktora z zapisem nazwy funkcji z dużej litery
+        function Car(brand, name, color)
+        {
+            this.brand = brand; // Wewnątrz konstruktora stosujemy this
+            this.name = name;
+            this.color = color;
+            this.year = 2000;
+
+            // Metoda wewnątrz konstruktora
+            // Zastosowano literał szablonu by przedstawić dane czytelnie z myślnikiem
+            this.printInfo = function () {console.log(`${this.name} - ${this.color}`);}
+        }
+
+        // Stworzenie nowego obiektu wywołując konstruktor
+        let car1 = new Car("Ford", "Mustang", "Red");
+        
+        console.log(car1);  // Wyświetlenie obiektu
+        car1.printInfo();   // Wywołanie metody
+
+    </script>
+</body>
+</html>
