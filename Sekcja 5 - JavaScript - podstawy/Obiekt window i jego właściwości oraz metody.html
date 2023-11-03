@@ -7,7 +7,49 @@
 </head>
 <body>
     <script>
-        
+
+        /*
+        Object window to ogólnodostępny obiekt w przeglądarce, w której działa
+        JavaScript, udostępnia nam wiele przydatnych informacji, o aktualnej
+        karcie lub oknie przeglądarki.
+        */
+
+        // Szerokość i wysokość okna przeglądarki
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+
+        /* Można wywołać polecenie bez window ponieważ aplikacja w przeglądarce
+        działa w kontekście obiektu window. Dopiero po kliknięciu na alert
+        w przeglądarce wykonuje się dalszy kod. */
+
+        alert("Hello!") // Alert wyświetlany w osobnym okienku
+
+        // Pobieranie informacji od użytkownika
+        let userInput = prompt("Podaj swoje imię: ");
+        console.log("Twoje imię to: ",userInput);
+
+        // Pobieranie cyfry i wykonanie dodawania
+        let userInput2 = prompt("Podaj wiek: ");
+        let wiek = parseInt(userInput2); // Trzeba parsować ponieważ byłby łańcuch znaków
+        console.log("Twoj wiek za 2 lata to: ",wiek+2);
+
+        // Uruchomienie fragmentu kodu po jakimś czasie, tutaj 1 sekunda
+        setTimeout(function () {
+            console.log("Wait...");
+        }, 1000);
+
+        // Ustawienie interwału ciągłego wykonywania się fragmentu kodu
+        let i = 0;
+        let interwalPierwszy = setInterval(() => {
+            console.log(i);
+            i++;
+        }, 100);
+
+        // Ustawienie zakończenia cyklicznego wywoływania kodu po 4 sekundach
+        setTimeout(() => {
+            clearInterval(interwalPierwszy);
+        }, 4000);
+
     </script>
 </body>
 </html>
