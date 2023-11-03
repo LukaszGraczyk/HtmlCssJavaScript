@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        Jeżeli dodamy setter do obiektu dla danej zmiennej, to zostanie on wywołany
+        automatycznie przy zapisie wartości do tej zmiennej. Podobnie będzie z getterem
+        przy pobieraniu wartości.
+        */
+
+        const user = {
+            
+            // Podkreślenie _ daje informacje innym, że wartość będzie używana
+            // tylko wewnątrz tego obiektku 
+            _name: null,
+
+            // Setter
+            set name(newValue) {
+                this._name = newValue;
+            },
+
+            // Getter
+            get name() {
+                return this._name;
+            }
+        };
+
+        // Zapisanie wartości w _name wywołując setter
+        user.name = "Asia";
+
+        // Sprawdzenie czy wstawienie wartości do _name się odbyło wywołując getter
+        console.log(user.name);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Enumeracja właściwości obiektu przy użyciu pętli for in.
+        */
+
+        let obiekt = {
+            a: 18,
+            b: "Anna",
+            info: function() {console.log("Hej");},
+            tablica: [1,2,3]
+        };
+
+        // Stała "prop" przyjmująca z pętli kolejną właściwość obiektu
+        // "in" słowo kluczowe dla pętli for in
+        for (const prop in obiekt) {
+            if (obiekt.hasOwnProperty(prop)) {
+                console.log(prop, obiekt[prop]); // Pokazanie właściwości i ich wartości
+            }
+        }
+
+        /*
+        Instrukcja warunkowa if sprawdza czy właściwość należy do obiektu.
+        Sprawdzamy to ponieważ każdy obiekt dziedziczy pewne elementy
+        od głównego obiektu JavaScript.
+        
+        Potrzebne jest wywołanie dla obiektu hasOwnProperty(nazwaStałej)
+        żeby sprawdzić czy właściwość bezpośrednio należy do naszego obiektu.
+        */
+
+    </script>
+</body>
+</html>
