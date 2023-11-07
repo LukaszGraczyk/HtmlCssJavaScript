@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+        
+        // Funkcja przeliczająca tradycyjne kąty na radiany
+        const angleToRadian = function(angle)
+        {
+            return Math.PI/180 * angle;
+        }
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.arc(canvas.width/2, canvas.height/2, 100, 0, angleToRadian(150));
+        ctx.stroke();
+
+    </script>
+
+</body>
+</html>

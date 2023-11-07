@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+
+        const canvas = document.querySelector("#canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Funkcja zwracająca losowe liczby z danego zakresu
+        const rand = function(min, max)
+        {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height/2); // Zaczniemy rysowanie od x: 0, y: połowa wysokości
+        const step = 100; // Krok co 100
+        const howMany = canvas.width / step; // Ilość kroków
+
+        for (let i=1; i<=howMany; i++)
+        {
+            let y = (canvas.height/2) + rand(-100, 100);
+            ctx.lineTo(i*step, y)
+        }
+        ctx.stroke();
+        
+    </script>
+</body>
+</html>

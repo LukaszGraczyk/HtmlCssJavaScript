@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const str = "Psy i koty są fajne"
+
+        ctx.font = "italic bold 40px Arial";
+        ctx.fillText(str, 100, 100);
+
+        const textMetrics  = ctx.measureText(str);
+
+        ctx.beginPath();
+        ctx.moveTo(100, 120);
+        ctx.lineTo(100 + textMetrics.width, 120);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

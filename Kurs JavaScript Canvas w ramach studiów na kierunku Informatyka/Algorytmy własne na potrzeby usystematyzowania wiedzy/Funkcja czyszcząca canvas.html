@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+        
+        /*
+        Jeżeli zamiast let lub var zastosowalibyśmy const funkcja czyszcząca canvas
+        nie zadziałałaby.
+        */
+
+        // getContext("2d") to pobranie zawartości płótna
+        let canvas = document.querySelector("#canvas");
+        let c = canvas.getContext("2d");
+
+        function clear_canvas() {		  
+        canvas = document.getElementById("canvas");
+        if (!canvas.getContext) { return; } // Warunek pobrania zawartości płótna
+        c.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Tworzymy linię łamaną na płótnie na potrzeby wyczyszczenia jej
+        c.beginPath();
+        c.moveTo(20, 20); 
+        c.lineTo(30, 40); 
+        c.lineTo(35, 10);
+        c.lineTo(125, 30);
+        c.lineTo(165, 50);
+        c.lineTo(225, 80);
+        c.lineTo(300, 190);
+        c.lineTo(425, 170);
+        c.lineTo(475, 190);
+        c.lineTo(775, 590);
+        c.stroke(); // Po zakończeniu rysowania obrysowujemy linię
+
+        // Wywołanie funkcji czyszczącej płótno
+        // clear_canvas(); // Usunięcie tego komentarza uruchomi czyszczenie płótna
+
+    </script>
+
+</body>
+</html>

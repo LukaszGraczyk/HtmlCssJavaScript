@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Funkcja zwracająca losowe liczby z danego zakresu
+        const rand = function(min, max)
+        {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        // Czyszczenie canvas po każdym odświeżeniu strony
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        {
+            const x = rand(10, canvas.width-100);
+            const y = rand(10, canvas.height-100);
+            const size = rand(10, 200);
+            ctx.fillRect(x, y, size, size); // Gotowy wypełniony kwadrat
+        }
+
+        {
+            const x = rand(10, canvas.width-100);
+            const y = rand(10, canvas.height-100);
+            const size = rand(10, 200);
+            ctx.strokeRect(x, y, size, size); // Gotowy obrysowany kwadrat
+        }
+        
+    </script>
+</body>
+</html>

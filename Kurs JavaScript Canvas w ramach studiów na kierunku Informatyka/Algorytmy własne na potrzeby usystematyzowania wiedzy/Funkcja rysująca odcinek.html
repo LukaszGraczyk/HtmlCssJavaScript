@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <canvas width="800" height="600" id="canvas" style="background-color: rgb(193, 236, 168);"></canvas>
+    
+    <script>
+
+        let canvas = document.querySelector("#canvas");
+        let c = canvas.getContext("2d"); 
+        // getContext("2d") to pobranie zawartości płótna
+
+        // Rysowanie odcinka
+        function line(ax,ay,bx,by) {
+        canvas = document.getElementById("canvas");
+        if (!canvas.getContext) { return; } // Warunek pobrania zawartości płótna canvas
+        c.beginPath();
+        c.moveTo(ax, ay);
+        c.lineTo(bx, by);
+        c.stroke();
+        }
+
+        line(100,400,300,500);
+
+    </script>
+
+    
+
+</body>
+</html>

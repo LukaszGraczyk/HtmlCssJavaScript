@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Linie pomocnicze do pozycjonowania tekstu
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height/2);
+        ctx.lineTo(canvas.width, canvas.height/2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2, 0);
+        ctx.lineTo(canvas.width/2, canvas.height);
+        ctx.stroke();
+
+        ctx.textAlign = "start";
+        // Oprócz "start" mamy jeszcze "end", "left", "right", "center"
+        // ctx.textAlign = "end";
+        // ctx.textAlign = "left";
+        // ctx.textAlign = "right";
+        // ctx.textAlign = "center";
+
+        ctx.textBaseline = "alphabetic";
+        // Oprócz "alphabetic" mamy jeszcze "top", "hanging", "middle", "bottom", "ideographic"
+        // ctx.textBaseline = "top";
+        // ctx.textBaseline = "hanging";
+        // ctx.textBaseline = "middle";
+        // ctx.textBaseline = "bottom";
+        // ctx.textBaseline = "ideographic";
+
+        // Dobór czcionki
+        ctx.font = "italic bold 30px Arial";
+        
+        // Wypełniony tekst w pozycji x y
+        ctx.fillText("Psy i koty są fajne", canvas.width/2, canvas.height/2);
+
+    </script>
+</body>
+</html>

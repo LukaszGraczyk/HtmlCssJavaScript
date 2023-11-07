@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+
+    <script>
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.font = "italic bold 50px Arial"; // Dobór czcionki
+        ctx.fillText("Psy i koty są fajne", 10, 60); // Wypełniony tekst w pozycji x y
+
+        ctx.font = "italic bold 30px Arial";
+        ctx.strokeText("Czasami koty są fajniejsze", 30, 140); // Obrysowany tekst w pozycji x y
+
+        ctx.font = "normal 40px Arial";
+        ctx.fillText("a czasami psy", 230, 180);
+        
+    </script>
+</body>
+</html>

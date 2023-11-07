@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+    
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas">
+    </canvas>
+
+    <script>
+        const canvas = document.querySelector("#canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(20, 20); // Stawiamy piórko w punkcie x: 20 y: 20
+        ctx.lineTo(30, 40); // Zaczynamy rysować niewidzialną linię do x: 30, y: 40
+        ctx.lineTo(35, 10); // Kolejna linia itd.
+        ctx.lineTo(125, 30);
+        ctx.lineTo(165, 50);
+        ctx.lineTo(225, 80);
+        ctx.lineTo(300, 190);
+        ctx.lineTo(425, 170);
+        ctx.lineTo(475, 190);
+        ctx.lineTo(775, 590);
+        ctx.stroke(); // Po zakończeniu rysowania obrysowujemy linię
+
+        // Kolejna ścieżka
+        ctx.beginPath();
+        ctx.moveTo(10, 10);
+        ctx.lineTo(15, 200);
+        ctx.lineTo(95, 200);
+        ctx.lineTo(95, 250);
+        ctx.lineTo(195, 250);
+        ctx.lineTo(395, 250);
+        ctx.lineTo(395, 350);
+        ctx.stroke();
+        
+    </script>
+</body>
+</html>
