@@ -19,7 +19,7 @@ body {
     color: #ffffff;
     background-color: rgb(0, 0, 0);
     border-radius: 100px;
-    border: 3px;
+    border: 4px;
     border-style: dotted;
     cursor: pointer;        /* Po najechaniu kursor zmienia się z dłoń */
     overflow: hidden;
@@ -28,6 +28,27 @@ body {
 
 .btn:focus {
     outline: none;
+}
+
+.circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 60%;
+    transform: translate(-50%, -50%);
+    animation: zoom 0.3s;   /* Animacja o nazwie zoom */
+
+    /* Te elementy wyłączamy ponieważ JS będzie sterował położeniem koła*/
+    /* top: 30px; */
+    /* left: 50px; */
+}
+
+@keyframes zoom {
+    to {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
 }
 
 /*
