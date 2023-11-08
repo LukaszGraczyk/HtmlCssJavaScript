@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #333;  
+}
+
+.btn {
+    position: relative;     /* Pozycjonowanie względem rodzica*/
+    padding: 2.7em 1em; 
+    color: #ffffff;
+    background-color: rgb(0, 0, 0);
+    border-radius: 100px;
+    border: 3px;
+    border-style: dotted;
+    cursor: pointer;        /* Po najechaniu kursor zmienia się z dłoń */
+    overflow: hidden;
+    font-size: 1.2cap;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/*
+Właściwość overflow określa, czy przyciąć zawartość, czy dodać paski
+przewijania, gdy zawartość elementu jest zbyt duża, aby zmieścić się
+w określonym obszarze.
+*/
+
+/*
+Usunięcie lini outline pomocnej do nawigacji klawiaturą.
+Zazwyczaj się tego nie usuwa ponieważ jest to pomocne do
+nawigacji tylko klawiaturą.
+*/
+
+/*
+Właściwość border-box informuje przeglądarkę, aby uwzględniła wszelkie obramowania
+i dopełnienie w wartościach określonych dla szerokości i wysokości elementu.
+Jeśli ustawisz szerokość elementu na 100 pikseli, to 100 pikseli obejmie
+dodane obramowanie lub wypełnienie, a pole zawartości zmniejszy się,
+aby wchłonąć tę dodatkową szerokość.
+
+Zwykle znacznie ułatwia to wymiarowanie elementów. Właściwość box-sizing: border-box
+to domyślny styl używany przez przeglądarki dla elementów <table>, <select> i <button>
+oraz dla <input> elementów typu radio, checkbox, reset, button, submit, color lub search.
+*/
+
