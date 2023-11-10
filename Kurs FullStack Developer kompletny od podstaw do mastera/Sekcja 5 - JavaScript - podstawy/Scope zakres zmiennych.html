@@ -30,13 +30,17 @@
         var g2 = 99; // Zmienna globalna
 
         if (1==1) {
+            let g1 = 1; // Zmienna lokalna
             var g3 = 100; // Zmienna globalna
             var g2 = 111; // Zmienna globalna
             window.g4 = 200; // Globalna zmienna, której unikamy
+
+            console.log(g1); // Wartość zmiennej lokalnej
         }
 
         for (var i=0 ; i < 5 ; i++) {} // Nawet w for zmienna var nadpisuje się globalnie
 
+        console.log(g1); // Wartość zmiennej globalnej
         console.log(g2);
         console.log(g3);
         console.log(i);

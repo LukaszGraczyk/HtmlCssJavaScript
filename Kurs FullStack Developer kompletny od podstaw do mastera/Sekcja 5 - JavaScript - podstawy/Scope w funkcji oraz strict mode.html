@@ -14,12 +14,39 @@
         te globalne zmienne przesłonić.
         */
 
-        let test1 = 22;
-        var data2 = 33;
+        let test1 = 11;
+        var data2 = 22;
 
         function foo() {
-            let test1 = 22;
+            let test1 = 33; // Wartość lokalna
+            var data2 = 44; // Wartość lokalna
+
+            dowolnaNazwa = 45; // Tak zapisana zmienna staje się globalna i zaśmieca window
+
+            console.log(test1); // test1 wewnątrz funkcji ma wartość 33
+            console.log(data2); // data2 wewnątrz funkcji ma wartość 44
         }
+
+        foo();
+
+        console.log(test1); // test1 na zewnątrz funkcji ma wartość 11
+        console.log(data2); // data2 na zewnątrz funkcji ma wartość 22
+        console.log(dowolnaNazwa); // Zmienna globalna której unikamy bo zaśmieca window
+
+        /*
+        Bardziej restrykcyjna wersja JavaScript określana jako strict mode
+        pozwala zabezpieczyć się przed błędnym zapisem takim jak dla zmiennej
+        dowolnaNazwa.
+        */
+
+        // Bez komentarza mielibyśmy błąd niezdefiniowanej zmiennej.
+        function foo2() {
+            "use strict" // Ten zapis włącza strict mode
+            // przypadkowaNazwa = 123;
+        }
+
+        foo2();
+
     </script>
 </body>
 </html>
