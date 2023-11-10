@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Zakres w większości języków programowania definiowany jest przez blok kodu,
+        ale nie w JavaScript. W JavaScript istnieje zakres globalny oraz lokalny.
+        Zakres tzw. scope to widoczność zmiennych dla poszczegónych treści programu.
+
+        Zakres globalny istnieje przez całe życie skryptu, raz zadeklarowana zmienna
+        globalna już tam pozostaje chyba, że uzyjemy na niej delete. Globalna zmienna
+        może być używana wewnątrz oraz poza funkcją, w praktyce gdziekolwiek
+        w bieżącym dokumencie. W przeglądarce window jest obiektem globalnym.
+
+        Zakres lokalny istnieje wewnątrz funkcji, w której zmienna zostałą zadeklarowana,
+        również argumenty funkcji. Domyślnie JavaScript nie ma zakresu blokowego z var
+        co powoduje pewne problemy.
+        */
+
+        let g1 = 10; // Zmienna globalna
+
+        /* Zmienna var umożliwia nadpisanie zmiennej przy dwukrotnym użyciu
+        słowa kluczowego var, jednak unikamy takiego zapisu */
+        var g2 = 20; // Zmienna globalna
+        var g2 = 99; // Zmienna globalna
+
+        if (1==1) {
+            var g3 = 100; // Zmienna globalna
+            var g2 = 111; // Zmienna globalna
+            window.g4 = 200; // Globalna zmienna, której unikamy
+        }
+
+        for (var i=0 ; i < 5 ; i++) {} // Nawet w for zmienna var nadpisuje się globalnie
+
+        console.log(g2);
+        console.log(g3);
+        console.log(i);
+
+        // Zmienna g3 ma zasięg globalny mimo, że jest wewnątrz instrukcji if.
+        // Zmienna g2 użyta wewnątrz instrukcji if nadal nadpisuje wartość 99 liczbą 111.
+
+    </script>
+</body>
+</html>

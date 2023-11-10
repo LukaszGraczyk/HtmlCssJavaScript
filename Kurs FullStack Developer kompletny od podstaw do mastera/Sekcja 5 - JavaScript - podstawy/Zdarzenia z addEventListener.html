@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Zdarzenia możemy również podpiąć z wykorzystaniem funkcji addEventListener.
+        Określamy rodzaj zdarzenia oraz funkcję, jaka ma być wywołana po pojawieniu
+        się tego zdarzenia.
+        */
+
+        window.addEventListener("load", function (event) {
+            console.log("Strona załadowana!");
+            console.log(event); // Tu informacyjnie obiekt event pokazuje swoją zawartość
+        });
+
+        window.addEventListener("resize", function(){
+            console.log(window.innerHeight, window.innerWidth);
+        });
+    </script>
+</body>
+</html>

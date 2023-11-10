@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Scope w funkcji, czyli wszystko zadeklarowane wewnątrz funkcji
+        z var, let oraz const ma zakres lokalny, widoczne jest tylko w funkcji.
+        Z poziomu funkcji mamy dostęp do zmiennych globalnych, możemy też
+        te globalne zmienne przesłonić.
+        */
+
+        let test1 = 22;
+        var data2 = 33;
+
+        function foo() {
+            let test1 = 22;
+        }
+    </script>
+</body>
+</html>
