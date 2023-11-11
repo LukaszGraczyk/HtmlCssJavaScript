@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Hoisting to procedura przeniesienia wszystkich deklaracji zmiennych let,
+        var i const na początek funkcji, natomiast przypisania wartości pozostają
+        na swoim miejscu. Ponadto funkcje są też przenoszone na początek programu.
+        */
+
+        function test1() {
+            console.log(a); // Konsola zwraca undefined
+            var a = 10;
+            console.log(a);
+        }
+        test1();
+
+        function test2() {
+            var a;
+            console.log(a); // Konsola zwraca undefined
+            a = 10;
+            console.log(a);
+        }
+        test2();
+
+        /*
+        W przeciwieństwie do zmiennej var, słowa kluczowe let i const działają
+        inaczej. Hoisting dla nich występuje ale nie następuje przypisanie undefined,
+        tak jak dla var. Dlatego nie można odwoływać się do let i const przed ich
+        "zapisaniem" w kodzie.
+        */
+
+        function test3() {
+            // console.log(a); // Usunięcie komentarza wywoła błąd
+            let a = 10;
+            console.log(a);
+        }
+        test3();
+
+        /*
+        Kod funkcji test1 jest równoważny z kodem funkcji test2.
+        Funkcja test2 obrazuje automatyczne przenoszenie deklaracji zmiennej
+        na początek funkcji. Przypisanie wartości 10 pozostaje w tym samym miejscu.
+        */
+
+        /*
+        Hoisting dotyczy też funkcji i polaga to na tym, że deklaracje funkcji
+        są przenoszone na sam początek programu.
+        */
+
+        test4();
+
+        function test4() {
+            console.log("Napis testowy A");
+        }
+
+        /*
+        Dla wyrażenia funkcyjnego nie działa hoisting. Przenoszona jest deklaracja,
+        ale nie przenoszona jest przypisana funkcja.
+        */
+
+        // wyrFunkcyjne(); // Usunięcie komentarza wywoła błąd
+        var wyrFunkcyjne = function () {
+            console.log("Wyrażenie funkcyjne");
+        }
+
+    </script>
+</body>
+</html>
