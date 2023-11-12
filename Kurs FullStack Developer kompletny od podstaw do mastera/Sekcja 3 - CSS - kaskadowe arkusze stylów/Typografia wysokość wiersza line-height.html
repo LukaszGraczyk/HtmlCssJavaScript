@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Każda linia tekstu ma swoją wysokość, również dodatkowo od góry
+        oraz dołu ma przestrzeń określoną jako line-height. Dzięki niej
+        wiersze tekstu nie nachodzą na siebie. Domyślnie line-height ma
+        wartość 1.2 czyli 120% wysokości tekstu.
+        */
+
+        div {
+            /* Odległości nad i pod tekstem to 22px-18px=4px czyli 4px/2=2px */
+            line-height: 22px;
+            font-size: 18px;
+        }
+
+        p {border: 2px solid rgb(0, 0, 0); font-size: 18px;}
+        p.lh22 {line-height: 22px;}
+        p.lh40 {line-height: 40px;}
+
+        /* Inne metody określania wysokości wiersza to odniesienie
+        się do wielkości czcionki w innych jednostkach niż px. */
+
+        /* 16px * 1.2 = 19.2px */
+        p.lh1_2 {line-height: 1.2;}
+
+        /* 16px * 1.5 = 24px */
+        p.lh150proc {line-height: 150%;}
+
+        /* 16px * 2 = 32px */
+        p.lh2em {line-height: 2em;}
+
+    </style>
+
+    <div>
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </div>
+    <p class="lh22">
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </p>
+    <p class="lh40">
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </p>
+    <p class="lh1_2">
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </p>
+    <p class="lh150proc">
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </p>
+    <p class="lh2em">
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+        Tekst testowy. Tekst testowy. Tekst testowy. Tekst testowy.
+    </p>
+
+</body>
+</html>

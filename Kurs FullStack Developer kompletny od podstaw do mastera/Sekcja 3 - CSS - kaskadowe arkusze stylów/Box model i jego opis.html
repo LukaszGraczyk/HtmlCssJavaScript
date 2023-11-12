@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        /*
+        Wszystkie elementy html są pudełkami i posiadają szerokość width
+        i wysokość heigh. Można podzielić je na dwie grupy, czyli elementy
+        blokowe i liniowe.
+
+        Elementy blokowe:
+        - są elementami prostokątnymi
+        - mogą mieć ustawioną szerokość, wysokość, marginesy i dopełnienie
+        - nie łamią się jak tekst do nowej linii
+
+        Elementy liniowe:
+        - płyną z tekstem wraz z innymi elementami liniowymi
+        - nie mogą mieć ustawionej szerokości oraz długości, marginesów i dopełnienia
+        - łamią się z końcem linii
+
+        Każdy element blokowy jest pudełkiem z następującymi właściwościami:
+        - content area - treść elementu czyli np. tekst, obraz itd. wewnątrz elementu html
+        - padding - dopełnienie czyli wolna przestrzeń między treścią a obramowaniem
+        - border - obramowanie elementu
+        - margin - margines czyli wolna przestrzeń poza elementem html oddzielająca go od innych elementów
+        
+        Zadanie modelu pudełkowego:
+        Model pudełkowy pozwala nam na budowanie układu strony inaczej
+        layoutu z klocków z uwzględnianiem:
+
+        - wymiarów każdego elementu
+        - marginesów czyli odstępów między elementami 
+        - padding tworzy wewnętrzne dopełnienie między jego obramowaniem a treścią
+        - określa pozycje na stronie
+
+        Wszystkie te właściwości muszą być przewidywalne i muszą działać
+        na wszystkich przeglądarkach.
+        */
+
+        div {
+            width: 200px;
+            height: 40px;
+            padding: 20px;
+            margin: 30px;
+            border: 15px solid #FFD700;
+        }
+    </style>
+    <div> Przykładowy próbny tekst na potrzeby nauki CSS. </div>
+
+    
+</body>
+</html>
