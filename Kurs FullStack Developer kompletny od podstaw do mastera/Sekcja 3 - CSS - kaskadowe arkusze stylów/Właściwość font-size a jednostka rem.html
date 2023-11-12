@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Jednostka względna do głównego elementu html. Upraszcza złożoność em
+        i jest prostsza przyskalowaniu.
+        */
+
+        html {font-size: 12px;}
+        body article {font-size: 1rem;}
+
+        /* 1.25 x 12px = 15px */
+        h1 {font-size: 1.25rem;}
+
+        /* 0.88 x 12px = 10.56px */
+        p span { font-size: 0.88rem; }
+    </style>
+
+    <article>
+        <h1>Nagłówek 15px</h1>
+        <p><span>Autor: Łukasz 10.56px</span></p>
+        <p>Napis testowy 12px</p>
+    </article>
+</body>
+</html>
