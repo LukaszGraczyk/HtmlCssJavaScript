@@ -2,36 +2,39 @@
 <head>
 <script type="text/javascript">
 
-var canvas;     //deklaracja obiektu "płótno" 
-var c;			//na płótnie wyświetlana jest grafika
+  var canvas;     // Deklaracja obiektu "płótno" 
+  var c;			    // Na płótnie wyświetlana jest grafika
 
-function draw(){
-  canvas=document.getElementById("canvas");
-  if(!canvas.getContext){return;}
-  c=canvas.getContext("2d");  //rysowanie na plaszczyznie (2D)
-  c.fillStyle="rgb(200,0,0)"; // kolor wypełnieni
-  c.fillRect(10,10,55,50);
-  c.fillStyle="rgba(0,0,200,0.5)";
-  c.fillRect(30,30,55,50);}
+  function draw(){
+    canvas=document.getElementById("canvas");
+    if(!canvas.getContext){return;}
+    c=canvas.getContext("2d");  // Rysowanie na plaszczyznie (2D)
+    c.fillStyle="rgb(200,0,0)"; // Kolor wypełnienia
+    c.fillRect(10,10,55,50);
+    c.fillStyle="rgba(0,0,200,0.5)";
+    c.fillRect(30,30,55,50);}
   
-function clear_canvas(){		  //funkcja "czyszcąca" płótno
-  canvas=document.getElementById("canvas");
-  if(!canvas.getContext){return;}
-  c=canvas.getContext("2d");
-  c.clearRect(0,0,canvas.width,canvas.height);}  
+  function clear_canvas(){		  // Funkcja "czyszcąca" płótno
+    canvas=document.getElementById("canvas");
+    if(!canvas.getContext){return;}
+    c=canvas.getContext("2d");
+    c.clearRect(0,0,canvas.width,canvas.height);
+  }  
   
 </script>
 </head>
 
 <body>
-<!--określamy wymiary płótna, na którym będą rysowane obrazy -->
-<canvas id="canvas" width='150' height='150'>
-<p>Sorry: Browser does not support Graphics Canvas</p>
-</canvas>
-<br />
 
-<button onclick="draw();">Rysuj</button>
-<button onclick="clear_canvas();">Wyczyść płótno</button> 
+  <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
+  <canvas id="canvas" width='150' height='150'>
+    <p>Sorry: Browser does not support Graphics Canvas</p>
+  </canvas>
 
+  <br/>
+
+  <button onclick="draw();">Rysuj</button>
+  <button onclick="clear_canvas();">Wyczyść płótno</button> 
+  
 </body>
 </html>

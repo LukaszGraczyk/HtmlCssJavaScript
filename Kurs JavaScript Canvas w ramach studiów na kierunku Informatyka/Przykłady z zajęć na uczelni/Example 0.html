@@ -1,0 +1,44 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+
+// Pisanie w JavaSript wewnątrz pliku html
+document.writeln('hello world! </br>');
+
+document.writeln('hello '+ name + ' !</br>');
+document.writeln('</br>');
+document.writeln('</br>');
+document.writeln('</br>');
+dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+document.writeln('</br>');   
+document.writeln(dayNames[4]);
+
+document.writeln('</br>');
+
+ii=1;
+while (ii<=5) {document.writeln("#"+ii);ii=ii+1;}
+document.writeln('</br>');
+var i,j;
+for (i=0;i<10;i++) {
+  for (j=i;j<10;j++) {document.write("*");}
+  document.writeln('</br>');}
+  
+  
+  function biggest(a,b,c){
+  biggun=a; // assume first is biggest
+  if(b>biggun){biggun=b;}
+  if(c>biggun){biggun=c;}
+  return biggun;
+}
+
+document.writeln('</br>');
+
+document.writeln('The value of PI is '+ Math.PI);
+
+document.writeln('</br>');
+
+</script>
+
+</body>
+</html>

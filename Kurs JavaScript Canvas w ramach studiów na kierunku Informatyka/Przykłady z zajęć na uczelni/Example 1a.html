@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+<script type="text/javascript">
+  /* Nie trzeba tutaj zapisywać <script type="text/javascript">
+  ponieważ jest to wartość domyślna */
+
+  var canvas;   // Deklaracja obiektu "płótno" 
+  var c;        // Na płótnie wyświetlana jest grafika
+  var ctx;      // Na płótnie wyświetlany jest tekst
+
+  var canvas2;  // Deklaracja obiektu "płótno" 
+  var c2;       // Na płótnie wyświetlana jest grafika
+
+  function draw(){
+    canvas=document.getElementById("canvas");
+    if(!canvas.getContext){return;}
+    c=canvas.getContext("2d");      // Rysowanie na plaszczyznie (2D)
+
+    c.fillStyle="red";          // Kolor wypełnienia
+    c.fillRect(10,100,155,50);      // Metoda fillRect(x,y,width,height) rysuje nam prostokąt
+
+    /* Współrzędna x lewego górnego rogu prostokąta */
+    /* Współrzędna y lewego górnego rogu prostokąta */
+    /* width szerokość prostokąta w pikselach */
+    /* height	wysokość prostokąta w pikselach */
+
+    c.fillStyle="rgba(0,0,200,0.8)";
+    c.fillRect(30,130,155,50);
+  }
+  
+  function clearCanvas(){		        // Funkcja "czyszcąca" płótno canvas
+    canvas=document.getElementById("canvas");
+    if(!canvas.getContext){return;}
+    c=canvas.getContext("2d");
+    c.clearRect(0,0,canvas.width,canvas.height); // Metoda clearRect(x,y,width,height) czyści nam prostokąt
+
+    /* Współrzędna x lewego górnego rogu kasowanego prostokąta */
+    /* Współrzędna y lewego górnego rogu kasowanego prostokąta */
+    /* width szerokość kasowanego prostokąta w pikselach */
+    /* height	wysokość kasowanego prostokąta w pikselach */
+  }
+
+  function clearCanvas2(){		      // Funkcja "czyszcąca" płótno canvas2
+    canvas2=document.getElementById("canvas2");
+    if(!canvas2.getContext){return;}
+    c2=canvas2.getContext("2d");
+    c2.clearRect(0,0,canvas2.width,canvas2.height);
+  }
+
+  function draw2() {
+    canvas2 = document.getElementById("canvas2");
+    if (!canvas2.getContext) {return}
+    c2=canvas2.getContext("2d");
+
+    c2.lineWidth = 4; // Ustalenie szerokości linii 
+
+    c2.beginPath();   // Rozpoczęcie rysowania
+    c2.arc(75, 75, 50, 0, Math.PI * 2, true);   // Koło
+    c2.moveTo(110, 75);
+    c2.arc(75, 75, 35, 0, Math.PI, false);      // Usta
+    c2.moveTo(65, 65);
+    c2.arc(60, 65, 5, 0, Math.PI * 2, true);    // Lewe oko
+    c2.moveTo(95, 65);
+    c2.arc(90, 65, 5, 0, Math.PI * 2, true);    // Prawe oko
+    c2.stroke();
+
+    /*
+    Metoda arc(x, y, r, startAngle, endAngle, counterclockwise)
+    rysuje łuki lub koło gdzie:
+    - współrzędna x środka okręgu
+    - współrzędna y środka okręgu
+    - średnica r środka okręgu
+    - startAngle początek rysowania okręgu w radianach a 0 oznacza, że początek jest na pozycji 3 godziny
+    - endAngle koniec rysowania w radianach
+    - counterclockwise opcjonalnie określa, czy rysowanie przebiega zgodnie z ruchem wskazówek zegara
+      [false] w kierunku ruchu wskazówek zegara
+      [true] przeciw kierunku ruchu wskazówek zegara
+    */
+  }
+
+  function drawText() {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d")
+    ctx.fillStyle="orange";             // Kolor tekstu wypełnionego kolorem
+    ctx.font = "48px Tahoma";           // Ustawienie wielkości i rodzaju czcionki
+    ctx.fillText("Poniedziałek, 6 listopada", 10, 50);    // Tekst ze znakami wypełnionymi kolorem
+    ctx.strokeStyle="green";            // Ustawienie koloru lub gradientu linii lub czcionki tekstu z obramowaniem
+    ctx.strokeText("Poniedziałek, 6 listopada", 10, 100); // Tekst ze znakami niewypełnionymi kolorem z obramowaniem
+  }
+</script>
+</head>
+
+<body>
+  <!--określamy wymiary płótna, na którym będą rysowane obrazy -->
+  <canvas id="canvas" width='550' height='350' style='background:rgb(241, 236, 179)'>
+    <p>Sorry: Browser does not support Graphics Canvas</p>
+  </canvas>
+
+  <br>
+  <br>
+
+  <canvas id="canvas2" width='550' height='350' style='background:rgb(167, 204, 227)'>
+    <p>Sorry: Browser does not support Graphics Canvas</p>
+  </canvas>
+
+  <br>
+  <br>
+
+  <!-- Buttony aktywujące funkcje rysujące -->
+  <button onclick="draw();drawText()">Rysuj</button>
+  <button onclick="draw2()">Rysuj</button>
+  <button onclick="clearCanvas(), clearCanvas2();">Wyczyść płótno</button> 
+  
+</body>
+</html>
