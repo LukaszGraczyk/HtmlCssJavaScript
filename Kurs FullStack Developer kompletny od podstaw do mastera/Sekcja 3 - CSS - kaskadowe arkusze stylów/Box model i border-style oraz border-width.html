@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Obramowanie w CSS to przestrzeń między dopełnieniem padding elementu,
+        a marginesem margin. Border w przeciwieństwie do marginoraz padding
+        może być w pełni stylowany np. kolorem, rodzajem linii itd.
+        */
+
+        div {
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            margin: 30px;
+            border: 15px solid #FFD700;
+        }
+
+        /*
+        Właściwość border-style ma następujące opcje:
+        solid, dotted, dashed, double, groove, ridge, inset, outset.
+        Możemy je ustawić dla każdego boku z osobna. Możemy je wymieniać
+        jedna po drugiej zgodnie z ruchem wskazówek zegara parząc na box.
+        */
+
+        p {
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            margin: 30px;
+            border-width: 5px;
+            border-color: black;
+            border-style: dotted solid double dashed;
+        }
+
+        article {
+            padding: 5px;
+            margin: 10px;
+            border-color: black;
+            border-style: solid;
+        }
+
+        .thin {border-width: thin;}
+        .medium {border-width: medium;}
+        .thick {border-width: thick;}
+        .mixed {border-width: thin thick medium 10px;}
+
+    </style>
+    <div>Treść przykładowa</div>
+    <p>Treść przykładowa</p>
+    <article class="thin">Treść przykładowa</article>
+    <article class="medium">Treść przykładowa</article>
+    <article class="thick">Treść przykładowa</article>
+    <article class="mixed">Treść przykładowa</article>
+</body>
+</html>

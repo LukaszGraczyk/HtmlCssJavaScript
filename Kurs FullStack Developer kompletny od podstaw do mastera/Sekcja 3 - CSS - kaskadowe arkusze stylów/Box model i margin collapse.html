@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div {
+            padding: 10px;
+            border: 10px solid black;
+            margin: 10px;
+            width: 120px;
+        }
+        .to-left {float: left;}
+        .clear-float {clear: both;}
+
+        /*
+        Kiedy dwa marginesy dwóch elemetów stykają się to czasami się sumują,
+        a czasmi jest tak, że automatycznie wybierany i pokazywany jest ten,
+        który jest większy.
+
+        Jeżeli mamy dwa elementy, któych poziome marginesy stykają się od góry i dołu,
+        to występuje margin collapse, czyli automatycznie pokazywany jest ten,
+        który jest większy.
+
+        Jeżeli mamy dwa elementy, któych pionowe marginesy stykają się od lewej
+        i prawej, to marginesy sumują się i w efekcie powstaje szerszy margines
+        będący sumą dwóch.
+        */
+
+    </style>
+    <div class="to-left">Testowy tekst przykładowy.</div>
+    <div class="to-left">Margines po lewej ma razem 20px.</div>
+    <div class="clear-float">Margines u góry ma 10px, margin collapse.</div>
+</body>
+</html>

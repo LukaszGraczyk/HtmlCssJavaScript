@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        div.text1 {
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            border: solid;
+            margin: 30px; /* Cztery marginesy o szerokości 30px */
+        }
+
+        div.text2 {
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            border: solid;
+
+            /* Cztery marginesy o różnej szerokości */
+            margin-top: 30px;
+            margin-right: 10px;
+            margin-bottom: 50px;
+            margin-left: 10px;
+        }
+
+        div.text3 {
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            border: solid;
+            margin: 30px 10px 50px 10px;
+            /* Cztery marginesy o różnej szerokości */
+            /* Tak samo jak dla div.text2 */
+            /* Kolejność: top right botton left */
+            /* Można zapisać we wszystkich konfiguracjach:
+            margin: 30px
+            margin: 30px 10px
+            margin: 30px 10px 50px
+            margin: 30px 10px 50px 10px
+            Kolejność: top right bottom left */
+        }
+    </style>
+
+    <div class="text1"><p> Przykładowy tekst </p></div>
+    <div class="text2"><p> Przykładowy tekst </p></div>
+    <div class="text3"><p> Przykładowy tekst </p></div>
+
+</body>
+</html>
