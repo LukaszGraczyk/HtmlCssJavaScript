@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var interval;
+        
+        function hello() {
+            console.log("Hello World !");
+        }
+        interval = setInterval(hello,500);
+
+        function stop(){
+            clearInterval(interval); // Metoda zatrzymująca cykliczne wywoływanie funkcji
+        }
+    </script>
+    <button onclick="stop()">STOP</button>
+</body>
+</html>
