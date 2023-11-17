@@ -169,31 +169,36 @@
         // Tablica b pojedynczego punktu musi wyglądać np. tak: [0,-5]
     }
     
-    function keyDownHandler(e)  //zdarzenia przypisane do klawiszy
-    {							//sterowanie za pomoca klawiatury
-        e = e || event;
-        var keyCode = e.keyCode,
-        letter = (String.fromCharCode(e.keyCode) || '').toLowerCase();
+    function keyDown(e)         // Funkcja przypisująca zdarzenia do klawiszy
+    {							// Sterowanie kwadratem za pomoca klawiatury
+        
+        /* Zdażenie event wstawione jako argument wywoła funkcję keyDown */
+        /* W naszym przypadku zdażeniem będzie zwolnienie wciśniętego przycisku strzałki */
+        
+        e = e || event;                 // Można zakomentować ten wiersz i funkcja też poruszałaby kwadratem
+        var arrowButton = e.keyCode;    // Po przecinku do var ArrowButton przypisany jest letter nadpisując e.keyCode
+        // letter = (String.fromCharCode(e.keyCode) || '').toLowerCase();
  
-        if (37==keyCode)
+        if (37 == arrowButton) // JavaScript Key Code dla strzałki w lewo na klawiaturze to 37
         {
             translateVertex(vertex,[-5,0]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
+            console.log(letter);
         }
-        if (38==keyCode)
+        if (38 == arrowButton) // JavaScript Key Code dla strzałki do góry na klawiaturze to 38
         {
             translateVertex(vertex,[0,-5]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
         }
-        if (39==keyCode)
+        if (39 == arrowButton) // JavaScript Key Code dla strzałki w prawo na klawiaturze to 39
         {
             translateVertex(vertex,[5,0]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
         }
-        if (40 === keyCode)
+        if (40 === arrowButton) // JavaScript Key Code dla strzałki do dołu na klawiaturze to 40
         {
             translateVertex(vertex,[0,5]);
 		    clear_canvas();
@@ -204,16 +209,18 @@
 </script>
 </head>
 
+<!-- Atrybut onkeyup powoduje uruchomienie naszej funkcji po tym jak zwolnimy wciśnięty guzik -->
+<!-- Można by tu też użyć atrybutu onkeydown to wtedy funkcja uruchomiłaby się przy naciśnięciu guzika -->
+<body onkeyup="keyDown(event)"> 
 
-<body onkeyup="keyDownHandler(event)">
-
-    <!--okreslenie wymiarów płótna -->
+<!-- Okreslenie wymiarów płótna canvas -->
 <canvas id="canvas" width='600' height='400'>
     <p>Sorry: Browser does not support Graphics Canvas</p>
 </canvas>
 
 <br/>
 
+<!-- Wywoływanie poszczególnych funkcji poprzez klikanie na button'y -->
 <button onclick="clear_canvas();">Wyczyść płótno</button> 
 <button onclick="line([0,0],[40,40]);">Odcinek</button> 
 <button onclick="line(p1,p2);">Odcinek 2</button> 
@@ -225,9 +232,11 @@
 <button onclick="stopAnimation();">STOP</button>
 
 <br>
-Przesuwanie za pomocą klawiszy strzałek.
+<br>
+    Przesuwanie za pomocą klawiszy strzałek.
 <br>
 
+<!-- Okreslenie wymiarów płótna canvas1 -->
 <canvas id="canvas1" width='150' height='150'>
     <p>Sorry: Browser does not support Graphics Canvas</p>
 </canvas>
