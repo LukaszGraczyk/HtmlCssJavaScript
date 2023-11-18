@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 250px;
+            height: 200px;
+            padding: 15px;
+            border: 10px solid yellow;
+            font-size: 18px;
+            background-color: aqua;
+
+            /* Ta właściwość powoduje, że treść będzie widoczna nawet gdy wychodzi poza box */
+            /* overflow: visible; */ /* Ustawienie domyślne */
+
+            /* Ta właściwość powoduje, że treść będzie niewidoczna wychodzi poza box */
+            /* overflow: hidden; */
+
+            /* Ta właściwość powoduje, że treść wychodząca poza box będzie miała opcję scrolla */
+            /* overflow: scroll; */
+
+            /* Ta właściwość powoduje, że treść wychodząca poza box będzie miała opcję scrolla na osi x */
+            /* overflow-x: scroll; */
+
+            /* Ta właściwość powoduje, że treść wychodząca poza box będzie miała opcję scrolla na osi y */
+            overflow-y: scroll;
+            
+            /* Ta właściwość powoduje łamanie za długich na zmieszczenie się w boksie słów */
+            overflow-wrap: break-word; 
+        }
+    </style>
+    <div>
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        bardzodłuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuugiesłowo
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+    </div>
+</body>
+</html>

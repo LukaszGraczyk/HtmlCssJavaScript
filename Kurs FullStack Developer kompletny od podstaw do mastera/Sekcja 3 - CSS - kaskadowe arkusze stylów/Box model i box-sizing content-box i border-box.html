@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Box-sizing określa jak width, height, margin oraz padding wpływa na element html.
+        - content-box - domyślna wartość, szerokość i wysokość zawiera samą treść, bez dopełnienia i obramowania
+        - padding-box - szerokość i wysokość zawiera treść i dopełnienie
+        - border-box - szerokość, wysokość zawiera treść, dopełnienie oraz obramowanie (najczęściej używany)
+        */
+
+        div {
+            box-sizing: border-box;
+            width: 90%;
+            height: auto;
+            padding: 10px;
+            border: solid;
+            margin: 10px;
+        }
+        p {
+            box-sizing: border-box;
+            width: 90%;
+            height: auto;
+            padding: 5px;
+            border: solid red 15px;
+            margin: 10px;
+        }
+    </style>
+
+    <div>
+        Testowy tekst
+        <p>Kolejny tekst</p>
+    </div>
+</body>
+</html>

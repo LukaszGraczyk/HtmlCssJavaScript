@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* Obrys outline, w przeciwieństwie do obramowania border, pomimo możliwości regulowania
+        grubości ramki nie wpływa na sąsiadujące z nim elementy box'owe. Gdy zastosujemy w elemencie
+        outline o dużej grubości, to nie będzie przesuwać to sąsiadujących obok innych elementów,
+        a jedynie najwyżej je przesłoni. */
+
+        div {
+            padding: 5px;
+            margin: 20px;
+            border: 5px solid orange;
+            color: blue;
+            outline-color: red;
+            outline-width: 5px;
+        }
+
+        .dotted {outline-style: dotted}
+    </style>
+
+    <div class="dotted">Testowy tekst</div>
+    <!-- Widzimy że obrys jest poza ramką border -->
+</body>
+</html>

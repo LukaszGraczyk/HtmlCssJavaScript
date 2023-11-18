@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        div {
+            border: 2px solid black;
+            margin: 20px;
+        }
+
+        .no-padding {
+            padding: 0px;
+        }
+
+        .padding {
+            padding: 10px;
+        }
+
+        .padding1 {padding: 10px;}                  /* Na górze i na dole i po bokach ten sam padding 10px. */
+        .padding2 {padding: 5px 30px;}              /* Na górze i na dole padding 5px, a po bokach 30px. */
+        .padding3 {padding: 50px 3px 4px;}          /* Na górze padding 50px, po bokach 3px, na dole 4px. */
+        .padding4 {padding: 10px 30px 20px 0px;}    /* Padding zgodnie z ruchem wskazówek zegara zaczynając od góry. */
+
+    </style>
+
+    <div class="no-padding">Treść przykładowa</div>
+    <div class="padding">Treść przykładowa</div>
+
+    <div class="padding1">Treść przykładowa</div>
+    <div class="padding2">Treść przykładowa</div>
+    <div class="padding3">Treść przykładowa</div>
+    <div class="padding4">Treść przykładowa</div>
+
+</body>
+</html>
