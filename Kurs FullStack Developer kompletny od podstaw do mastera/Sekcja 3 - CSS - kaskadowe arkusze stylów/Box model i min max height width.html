@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div {
+            width: 200px;
+
+            /* Jeżeli tekstu jest mniej niż umożliwia na to box to i tak mamy 100px */
+            min-height: 100px;
+            
+            /* Jeżeli tekstu jest więcej niż pozwala height 450px to box już się dalej nie zwiększa */
+            max-height: 450px;
+            
+            /* Podobnie jak min-height oraz max-height działają min-width oraz max-width */
+
+            padding: 15px;
+            border: 10px solid yellow;
+            font-size: 18px;
+            color: black;
+            background-color: aqua;
+            overflow-y: scroll;
+        }
+    </style>
+    <div>
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        bardzodłuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuugiesłowo
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+        a b c d e f g h i j k l m n o p r s t u w q x y z
+    </div>
+</body>
+</html>
