@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        /*
+        Właściwość display jest kluczem w kontroli układu strony w dokumencie html.
+        Elementy html mają z góry ustalone domyślne wartości display jka inline,
+        czy block.
+
+        display: inline
+        Liniowe elementy zajmują tylko tyle miejsca ile potrzebują ustawiają się
+        jeden po drugim i nie mogą posiadać jako dzieci elementów blokowych.
+        
+        Możemy umieszczać elementy liniowe wewnątrz blokowych, ale nigdy odwrotnie.
+        */
+
+        .red{background-color: red;}
+        .green{background-color: green;}
+        /* span{width: 100px;} Jest to element liniowy dlatego nie da się ustawić width. */
+        /* Ustawianie szerokości i wyskości dla elementów liniowych jest ignorowane */
+        /* Wyjątkiem są elementy <img> i <video> bo można im ustawić wysokość i szerokość */
+
+    </style>
+
+    <span>Tekst w span, <b>pogrubiony</b> oraz pisany <i>kursywą</i></span>
+    <!-- <b> oraz <i> uswawiają się w linii i nie łamią tekstu same z siebie. -->
+    <!-- Elementy liniowe: span, a, i, u, b, q, img, small, strong, video, input, img etc. -->
+    <!-- Elementy liniowe mają domyślnie ustawioną wartość display inline. -->
+    <!-- Elementy liniowe mogą mieć ustawioną wartość display jako block. -->
+    <!-- Elementy liniowe pisane jeden po drugim są w tej samej linii do końca strony -->
+
+    <div class="red">Czerwony div</div>
+    <span>Tekst span</span>
+    <div class="green">Zielony div</div>
+    <!-- Elementy liniowe przed i za elementami blokowymi będą w oddzielnej linii. -->
+    <!-- Dzieje się tak ponieważ elementy blokowe zajmują zawsze całą linię. -->
+
+    <span>Gramofon </span>
+    <video controls loop src="https://static.videezy.com/system/resources/previews/000/000/168/original/Record.mp4" width="300"></video>
+    <span> biały</span>
+    <!-- Ustawianie szerokości i wysokości dla elementów liniowych jest ignorowane -->
+    <!-- Wyjątkiem są elementy <img> i <video> bo można im ustawić wysokość i szerokość -->
+    <!-- Elementy <img> i <video> nie przenoszą elementów liniowych obok nich do nowej linii -->
+</body>
+</html>
