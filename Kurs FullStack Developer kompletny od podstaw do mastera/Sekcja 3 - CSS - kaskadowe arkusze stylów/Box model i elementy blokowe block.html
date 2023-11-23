@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .red{background-color: red;}
+        .orange{background-color: orange;}
+        .green{background-color: green;}
+
+        /*
+        Element blokowy zajmuje maksymalne dostępne miejsce.
+        Zawsze zaczyna się w nowej linii. Element blokowy zajmuje
+        maksymalne dostępne od rodzica miejsce.
+
+        Elementy blokowe układają się jeden po drugim.
+        Przykłady: div, p, article, section, aside, main, nav, hr, table, ol, ul, li, h1-h6.
+        
+        Elementy blokowe mogą mieć jako dzieci dowolne elementy np.
+        inne elementy blokowe lub elementy liniowe.
+        */
+    </style>
+
+    <div class="red">Div zajmuje całą dostępną szerokość</div>
+    <p class="orange">Div zajmuje całą dostępną szerokość</p>
+    <article class="green">Div zajmuje całą dostępną szerokość</article>
+
+    <br>
+
+    <div class="red">Div zajmuje <span>całą</span> dostępną szerokość</div>
+    
+    <p class="orange">
+        Paragraf <b>zajmuje</b> całą <q>dostępną</q><i>szerokość</i><a href="example.com">link</a>
+    </p>
+    
+    <article class="green">
+        Article zajmuje <q>całą</q> dostępną <i>szerokość</i>
+        <section class="red">Sekcja</section><p>Paragraf</p>
+    </article>
+</body>
+</html>
