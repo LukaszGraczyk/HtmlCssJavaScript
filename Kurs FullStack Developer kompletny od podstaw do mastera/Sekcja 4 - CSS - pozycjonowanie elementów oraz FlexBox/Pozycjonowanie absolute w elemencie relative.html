@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Gdy umieszczamy element z pozycjonowaniem absolute wewnątrz elementu
+        z pozycjonowaniem realtive, wtedy pozycjonowanie jest względem elementu
+        zewnętrznego z pozycjonowaniem relative.
+        */
+
+        .box{
+            position: absolute;
+            top: 10px;
+            bottom: 15px;
+            left: 10px;
+            right: 40px;
+            width: 50%; /* Ustawinie z wyższym priorytetem niż left, right */
+            height: 30%; /* Ustawinie z wyższym priorytetem niż top, bottom */
+            padding: 5px;
+            background: red;
+            border: 2px solid gray;
+        }
+
+        article{
+            position: relative;
+            padding: 5px;
+            border: 2px solid darkgreen;
+            width: auto;
+            height: 100px;
+        }
+    </style>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <article>
+        <div class="box">
+            Lorem ipsum dolor sit amet.
+        </div>
+    </article>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+</body>
+</html>

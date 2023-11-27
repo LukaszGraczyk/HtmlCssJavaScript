@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        /*
+        Flexbox to sposób na ustawienie elementów w wierszu lub kolumnie.
+        Elementy mogą być rozszerzane lub zmniejszane w zależności od potrzeb.
+        */
+
+        .container {
+            background: green;
+            display: flex; /* Dostęp do modułu flexbox'a */
+            flex-direction: column;
+            /*
+            Różne ustawienia elementów: 
+            column / column-reverse / row / row-reverse
+            */
+        }
+
+        .container > div { /* Selektor dziecka */
+            margin: 5px;
+            height: 70px;
+            background: silver;
+            text-align: center;
+            line-height: 70px;
+        }
+
+    </style>
+
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

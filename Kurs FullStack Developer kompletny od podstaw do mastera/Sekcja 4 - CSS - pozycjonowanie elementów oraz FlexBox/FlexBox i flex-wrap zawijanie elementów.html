@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        .container {
+            background: green;
+            display: flex;
+            flex-direction: row; /* Domyślne ustawienie w linii */
+            flex-wrap: wrap; /* Domyślnie jest nowrap i wtedy jest wszstko w jednej linii */
+            /*
+            Ustawienie wrap powoduje przejście nie mieszczących się w oknie
+            elementów do nowej linii, jeżeli automatyczne zmniejszanie się nie pomaga.
+            */
+        }
+
+        .container > div { /* Selektor dziecka */
+            margin: 5px;
+            height: 70px;
+            background: silver;
+            text-align: center;
+            line-height: 70px;
+        }
+
+    </style>
+
+    <div class="container">
+        <div>Element 1</div>
+        <div>Element 2</div>
+        <div>Element 3</div>
+        <div>Element 4</div>
+        <div>Element 5</div>
+        <div>Element 6</div>
+        <div>Element 7</div>
+        <div>Element 8</div>
+        <div>Element 9</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Dla position relative nie są ignorowane właściwości takie jak
+        left, top, bottom itp.
+        */
+
+        .box{
+            position: relative;
+            left: 100px;
+            bottom: 30px;
+            padding: 5px;
+            width: 100px;
+            background: darkgray;
+            border: 2px solid gray;
+
+            /* Ustawienie bottom powoduje, że div wchodzi nad p,
+            a miejsce puste, które po nim pozostaje nie zmienia
+            rozmiaru ani położenia */
+        }
+    </style>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="box">
+        Lorem ipsum dolor sit amet.
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+</body>
+</html>

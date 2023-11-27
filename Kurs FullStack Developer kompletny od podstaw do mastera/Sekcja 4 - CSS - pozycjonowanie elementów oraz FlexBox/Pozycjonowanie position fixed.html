@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Position fixed usuwa element z naturalnego flow dokumentu,
+        czyli nie wpływa na inne elementy. Wszystkie elementy są widoczne
+        za elementem z position fixed, są pod nim. Element ten je zasłania.
+        Jednak w przeciwieństwie do absolute pozycjonuje element względem okna.
+        Powoduje to, że przy scrolowaniu strony zawartość się przewija,
+        a element z position fixed jest na sztywno umiejscowiony w danym
+        punkcie względem okna przeglądarki.
+        */
+
+        .box{
+            position: fixed;
+            left: 30px;
+            top: 30px;
+            padding: 5px;
+            width: 100px;
+            background: darkgray;
+            border: 2px solid gray;
+        }
+    </style>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="box">
+        Lorem ipsum dolor sit amet.
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+</body>
+</html>

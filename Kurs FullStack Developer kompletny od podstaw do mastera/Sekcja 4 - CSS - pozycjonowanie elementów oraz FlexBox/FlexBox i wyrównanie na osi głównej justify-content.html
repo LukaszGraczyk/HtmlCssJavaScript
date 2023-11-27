@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        .container {
+            background: green;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly; /* Różne opcje wyrównania */
+            /* flex-start / flex-end / center / space-between / space-around / space-evenly */
+        }
+
+        .container > div {
+            margin: 5px;
+            height: 70px;
+            background: silver;
+            text-align: center;
+            line-height: 70px;
+        }
+
+    </style>
+
+    <div class="container">
+        <div>Element 1</div>
+        <div>Element 2</div>
+        <div>Element 3</div>
+    </div>
+</body>
+</html>

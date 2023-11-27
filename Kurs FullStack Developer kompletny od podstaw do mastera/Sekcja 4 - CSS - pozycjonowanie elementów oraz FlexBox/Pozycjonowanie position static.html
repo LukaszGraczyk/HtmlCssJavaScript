@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Pozycjonowanie określa, gdzie pojawią się elementy html na ekranie
+        oraz w jaki sposób będą wyświetlone. Dla position static ignorowane
+        są właściwości takie jak left, top, bottom itp.
+        */
+
+        .box{
+            position: static; /* Wartość domyślna, elementy układają się jeden po drugim */
+            left: 100px; /* Polecenie jest ignorowane z powodu position static */
+            padding: 5px;
+            background: darkgray;
+            border: 2px solid gray;
+        }
+    </style>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="box">
+        Lorem ipsum dolor sit amet.
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+</body>
+</html>
