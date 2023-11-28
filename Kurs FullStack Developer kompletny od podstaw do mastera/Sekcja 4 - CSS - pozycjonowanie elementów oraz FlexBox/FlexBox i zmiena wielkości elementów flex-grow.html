@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        .container {
+            background: green;
+            display: flex;
+        }
+
+        .container > div {
+            margin: 5px;
+            height: 70px;
+            background: silver;
+            text-align: center;
+            line-height: 70px;
+            
+            flex-grow: 1;
+            /* Właściwość ta powoduje, że wszystkie elementy div
+            w kontenerze mają tą samą szerokość. */
+        }
+
+        .kolejnosc1 {
+            order: 1;
+        }
+
+        .kolejnosc2 {
+            order: 2;
+        }
+
+        /* Element z tą klasą jest 2 razy większy od pozostałych 
+        elementów w kontenerze. */
+        div.kolejnosc2 {
+            flex-grow: 2;
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="kolejnosc1">E l e m e n t 1</div>
+        <div class="kolejnosc2">E l e m e n t 2</div>
+    </div>
+
+</body>
+</html>
