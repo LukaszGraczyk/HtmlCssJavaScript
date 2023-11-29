@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*
+        Media Queries pozwalają na użycie określonych styli tylko
+        jeśli jest spełniony warunek np. danej minimalnej szerokości
+        ekranu przeglądarki. Dzięki temu można uzyskać układ strony,
+        który dostosowuje się do ekranu urządzenia.
+        */
+
+        body {
+            font-size: 3rem;
+            background-color: silver;
+            color: black;
+        }
+
+        /* Informacja pokazująca się jako pseudoelement przed
+        rozciągnięciem okna ponad wartość 576px. */
+        #breakpoint-info::after {
+            content: "breakpoint do szerokości ekranu 576px";
+        }
+
+        /* Użycie @media tworzy "breakpoint" od którego następuje
+        zmiana stylu w zależności od rozmiaru okna przeglądarki. */
+        @media (min-width: 576px) {
+            body {
+                background-color: white;
+                /* Można też stosować polecenie wyłączania widoczności elementu. */
+                /* display: none; */
+            }
+
+            #breakpoint-info::after {
+                content: "breakpoint 576px lub więcej - małe telefony";
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                background-color: yellowgreen;
+            }
+
+            #breakpoint-info::after {
+                content: "breakpoint 768px lub więcej - telefony";
+            }
+        }
+
+        @media (min-width: 992px) {
+            body {
+                background-color: orange;
+            }
+
+            #breakpoint-info::after {
+                content: "breakpoint 992px lub więcej - tablety";
+            }
+        }
+
+        @media (min-width: 1200px) {
+            body {
+                background-color: red;
+            }
+
+            #breakpoint-info::after {
+                content: "breakpoint 1200px lub więcej - laptopy";
+            }
+        }
+
+        @media (min-width: 1400px) {
+            body {
+                background-color: darkred;
+            }
+
+            #breakpoint-info::after {
+                content: "breakpoint 1400px lub więcej - monitory desktopowe";
+            }
+        }
+
+    </style>
+
+    <span id="breakpoint-info"></span>
+</body>
+</html>
