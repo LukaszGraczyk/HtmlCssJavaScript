@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        canvas
+        {
+            border: 1px solid black;
+            background: rgb(187, 241, 183);
+        }
+    </style>
+
     <script>
         var canvas;   // Deklaracja obiektu "płótno" 
         var c;        // Na płótnie wyświetlana jest grafika
+        var txt;      // Na płótnie wyświetlany jest tekst
         var vertex = [[450,450],[460,450],[460,460],[450,460],[450,470],[440,470],[440,460],[430,460],[430,450],[440,450],[440,440],[450,440]];
-    
+
 
         function clear_canvas() {		                // Funkcja czyszcząca płótno
         canvas=document.getElementById("canvas");
@@ -16,6 +26,7 @@
         c=canvas.getContext("2d");
         c.clearRect(0,0,canvas.width,canvas.height);    // Metoda clearRect(x,y,width,height) czyści nam prostokąt
         }
+
 
         /* Funkcja rysująca wielokąt o wierzchołkach z tablicy "a", taka sama jak powyższa funkcja polygon,
         tylko z dodatkową metodą fillStyle=color; wypełniającą kolorem figurę. */
@@ -34,6 +45,7 @@
         // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
         }
 
+
         function degreesToRadians(angle) {  // Funkcja zamiany stopni na radiany
         return radians = (Math.PI/180)*angle;
         }
@@ -50,16 +62,16 @@
         }
 
 
-        function rotateVertex(a,v){         // Funkcja obrótu tablicy wierzchołków wokół punktu "a"
+        function rotateVertex(a,v) {        // Funkcja obrótu tablicy wierzchołków wokół punktu "a"
         for(i=0; i<v.length; i++)
-        {rotate(1,a,v[i]);}                 // Obrót o 1 stopień
+        {rotate(1,a,v[i]);}                 // Obrót o 1 stopień zgodnie z ruchem wskazówek zegara (gdy -1 to obrót w drugą stronę)
         return v;
         // Tablica a pojedynczego punktu musi wyglądać np. tak: [450,450]
         // Tablica v punktów musi wyglądać np. tak:
         // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
         }
 
-        function rotatePolygon(){           // Funkcja obracania wielokąta
+        function rotatePolygon() {          // Funkcja obracania wielokąta
         rotateVertex([445,455],vertex);     // Obrót tablicy "vertex" wokół punktu "vertex[2]"
         clear_canvas();                     // Funkcja czyszcząca płótno
         fillPolygon(vertex,'green');        // Funkcja wypełniająca kolorem wielobok
@@ -68,15 +80,30 @@
         // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
         // Tablica vertex[2] to podtablica będąca współrzędnymi punktu o indeksie [2] w tablicy vertex
         // Tablica vertex[2] pojedynczego punktu musi wyglądać np. tak: [450,450]
-    }
+        }
 
 
         var play;  // Animacja z ustaleniem przedziału czasowego (time interval)
 
         /* Funkcja realizująca animację obrotu. */
-        function startAnimation(){
+        function startAnimation() {
         play=setInterval('rotatePolygon()',10);
         //Metoda setInterval będzie uruchamiać funkcję rotatePolygon co 10 milisekund.
+        }
+
+        function pokaztekst() {                                   
+        canvas=document.getElementById("canvas");
+        if(!canvas.getContext){return;}
+        txt=canvas.getContext("2d");
+
+        txt.font = "italic bold 50px Arial"; // Dobór czcionki
+        txt.fillText("Psy i koty są fajne", 10, 60); // Wypełniony tekst w pozycji x y
+
+        txt.font = "italic bold 30px Arial";
+        txt.strokeText("Czasami koty są fajniejsze", 30, 140); // Obrysowany tekst w pozycji x y
+
+        txt.font = "normal 40px Arial";
+        txt.fillText("a czasami psy", 230, 180);
         }
 
     </script>
@@ -85,6 +112,7 @@
 <body>
     <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
     <canvas id="canvas" width='900' height='900' style='background:rgb(241, 236, 179)'></canvas>
-    <button onclick="startAnimation();">START</button> 
+    <button onclick="startAnimation();">START</button>
+    <button onclick="pokaztekst();">TEKST</button>
 </body>
 </html>
