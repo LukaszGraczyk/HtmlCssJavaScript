@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var canvas;   // Deklaracja obiektu "płótno" 
+        var c;        // Na płótnie wyświetlana jest grafika
+    
+        function draw() {
+        canvas = document.getElementById("canvas");
+        if (!canvas.getContext) {return}
+        c=canvas.getContext("2d");
+    
+        c.lineWidth = 4; // Ustalenie szerokości linii
+    
+        c.beginPath();
+        c.moveTo(450, 450);
+        c.lineTo(460, 450);
+        c.lineTo(460, 460);
+        c.lineTo(450, 460);
+        c.lineTo(450, 470);
+        c.lineTo(440, 470);
+        c.lineTo(440, 460);
+        c.lineTo(430, 460);
+        c.lineTo(430, 450);
+        c.lineTo(440, 450);
+        c.lineTo(440, 440);
+        c.lineTo(450, 440);
+        c.lineTo(450, 450);
+        c.stroke(); // Po zakończeniu rysowania obrysowujemy linię
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
+    <canvas id="canvas" width='900' height='900' style='background:rgb(241, 236, 179)'></canvas>
+    <button onclick="draw()">Rysuj</button>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var canvas;   // Deklaracja obiektu "płótno" 
+        var c;        // Na płótnie wyświetlana jest grafika
+        var vertex = [[450,450],[460,450],[460,460],[450,460],[450,470],[440,470],[440,460],[430,460],[430,450],[440,450],[440,440],[450,440]];
+    
+
+        function clear_canvas() {		                // Funkcja czyszcząca płótno
+        canvas=document.getElementById("canvas");
+        if(!canvas.getContext){return;}
+        c=canvas.getContext("2d");
+        c.clearRect(0,0,canvas.width,canvas.height);    // Metoda clearRect(x,y,width,height) czyści nam prostokąt
+        }
+
+        /* Funkcja rysująca wielokąt o wierzchołkach z tablicy "a", taka sama jak powyższa funkcja polygon,
+        tylko z dodatkową metodą fillStyle=color; wypełniającą kolorem figurę. */
+        function fillPolygon(a,color) {
+        canvas=document.getElementById("canvas");
+        if(!canvas.getContext){return;}
+        c=canvas.getContext("2d");
+        c.beginPath();
+        c.moveTo(a[0][0],a[0][1]);
+        for(i=0; i<a.length; i++)
+        {c.lineTo(a[i][0],a[i][1]);}
+        c.closePath();
+        c.fillStyle=color;
+        c.fill();
+        // Tablica a punktów musi wyglądać np. tak:
+        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
+        }
+
+        function degreesToRadians(angle) {  // Funkcja zamiany stopni na radiany
+        return radians = (Math.PI/180)*angle;
+        }
+
+
+        function rotate(angle,a,b) {        // Funkcja obrotu punktu "b" wokół punktu "a" o kąt "angle"
+        angle=degreesToRadians(angle);
+        d0=b[0]; d1=b[1];
+        b[0]=(d0-a[0])*Math.cos(angle)-(d1-a[1])*Math.sin(angle) + a[0];
+        b[1]=(d0-a[0])*Math.sin(angle)+(d1-a[1])*Math.cos(angle) + a[1];
+        return b;
+        // Tablica a pojedynczego punktu musi wyglądać np. tak: [450,450]
+        // Tablica b pojedynczego punktu musi wyglądać np. tak: [460,450]
+        }
+
+
+        function rotateVertex(a,v){         // Funkcja obrótu tablicy wierzchołków wokół punktu "a"
+        for(i=0; i<v.length; i++)
+        {rotate(1,a,v[i]);}                 // Obrót o 1 stopień
+        return v;
+        // Tablica a pojedynczego punktu musi wyglądać np. tak: [450,450]
+        // Tablica v punktów musi wyglądać np. tak:
+        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
+        }
+
+        function rotatePolygon(){           // Funkcja obracania wielokąta
+        rotateVertex([445,455],vertex);     // Obrót tablicy "vertex" wokół punktu "vertex[2]"
+        clear_canvas();                     // Funkcja czyszcząca płótno
+        fillPolygon(vertex,'green');        // Funkcja wypełniająca kolorem wielobok
+
+        // Tablica vertex punktów musi wyglądać np. tak:
+        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
+        // Tablica vertex[2] to podtablica będąca współrzędnymi punktu o indeksie [2] w tablicy vertex
+        // Tablica vertex[2] pojedynczego punktu musi wyglądać np. tak: [450,450]
+    }
+
+
+        var play;  // Animacja z ustaleniem przedziału czasowego (time interval)
+
+        /* Funkcja realizująca animację obrotu. */
+        function startAnimation(){
+        play=setInterval('rotatePolygon()',10);
+        //Metoda setInterval będzie uruchamiać funkcję rotatePolygon co 10 milisekund.
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
+    <canvas id="canvas" width='900' height='900' style='background:rgb(241, 236, 179)'></canvas>
+    <button onclick="startAnimation();">START</button> 
+</body>
+</html>
