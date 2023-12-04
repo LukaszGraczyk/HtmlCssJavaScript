@@ -17,7 +17,7 @@
         var canvas;   // Deklaracja obiektu "płótno" 
         var c;        // Na płótnie wyświetlana jest grafika
         var txt;      // Na płótnie wyświetlany jest tekst
-        var vertex = [[450,450],[460,450],[460,460],[450,460],[450,470],[440,470],[440,460],[430,460],[430,450],[440,450],[440,440],[450,440]];
+        var vertex = [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]];
 
 
         function clear_canvas() {		                // Funkcja czyszcząca płótno
@@ -42,7 +42,7 @@
         c.fillStyle=color;
         c.fill();
         // Tablica a punktów musi wyglądać np. tak:
-        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
+        // [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]]
         }
 
 
@@ -66,20 +66,20 @@
         for(i=0; i<v.length; i++)
         {rotate(1,a,v[i]);}                 // Obrót o 1 stopień zgodnie z ruchem wskazówek zegara (gdy -1 to obrót w drugą stronę)
         return v;
-        // Tablica a pojedynczego punktu musi wyglądać np. tak: [450,450]
+        // Tablica a pojedynczego punktu musi wyglądać np. tak: [350,350]
         // Tablica v punktów musi wyglądać np. tak:
-        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
+        // [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]]
         }
 
+
         function rotatePolygon() {          // Funkcja obracania wielokąta
-        rotateVertex([445,455],vertex);     // Obrót tablicy "vertex" wokół punktu "vertex[2]"
+        rotateVertex([345,355],vertex);     // Obrót tablicy "vertex" wokół punktu "[345,355]"
         clear_canvas();                     // Funkcja czyszcząca płótno
         fillPolygon(vertex,'green');        // Funkcja wypełniająca kolorem wielobok
 
         // Tablica vertex punktów musi wyglądać np. tak:
-        // [[450,450],[460,450][460,460][450,460][450,470][440,470][440,460][430,460][430,450][440,450][440,440][450,440]]
-        // Tablica vertex[2] to podtablica będąca współrzędnymi punktu o indeksie [2] w tablicy vertex
-        // Tablica vertex[2] pojedynczego punktu musi wyglądać np. tak: [450,450]
+        // [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]]
+        // Tablica [345,355] to podtablica będąca współrzędnymi punktu
         }
 
 
@@ -91,28 +91,117 @@
         //Metoda setInterval będzie uruchamiać funkcję rotatePolygon co 10 milisekund.
         }
 
+        /* Funkcja realizująca zatrzymanie animacji obrotu. */
+        function stopAnimation() {
+        clearInterval(play); // Metoda usuwająca cykliczne wywoływanie funkcji poprzez setInterval
+        }
+
+
+        function scale(v, s) { // Skalowanie ("v" to tablica wierzchołków a "s" to skala)
+        for (var i = 0; i < v.length; i++) {
+            for (var j = 0; j < v[i].length; j++) {
+                v[i][j] *= s;
+            }
+        }
+        return v;
+        }
+
+
+        function zoomPlus() { //zoom s++
+	    stopAnimation();
+        clear_canvas();
+        scale(vertex, 1);
+	    startAnimation();
+	    }
+
+
+        /* Funkcja zmieniająca współrzędne punktu a poprzez dodanie do nich współrzędnych punktu b. */
+        function translate(a,b) {
+        a[0]=a[0]+b[0];
+        a[1]=a[1]+b[1];
+        return a;
+        // Tablica a pojedynczego punktu musi wyglądać np. tak: [10,10]
+        }
+
+
+        /* Funkcja zmieniająca współrzędne punktów w tablicy v poprzez dodanie do nich współrzędnych punktu b. */
+        function translateVertex(v,b) {
+        for(i=0; i<v.length; i++)
+        {translate(v[i],b);}
+        return v;
+        // Tablica v punktów musi wyglądać np. tak:
+        // [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]]
+        // Tablica b pojedynczego punktu musi wyglądać np. tak: [0,-5]
+        }
+    
+
+        function keyDown(e) {  // Funkcja przypisująca zdarzenia do klawiszy // Sterowanie kwadratem za pomoca klawiatury
+        
+        /* Zdażenie event wstawione jako argument wywoła funkcję keyDown */
+        /* W naszym przypadku zdażeniem będzie zwolnienie wciśniętego przycisku strzałki */
+        
+        e = e || event;                 // Można zakomentować ten wiersz i funkcja też poruszałaby kwadratem
+        var arrowButton = e.keyCode;    // Po przecinku do var ArrowButton przypisany jest letter nadpisując e.keyCode
+        // letter = (String.fromCharCode(e.keyCode) || '').toLowerCase();
+ 
+        if (37 == arrowButton) // JavaScript Key Code dla strzałki w lewo na klawiaturze to 37
+        {
+            translateVertex(vertex,[-5,0]);
+		    clear_canvas();
+            fillPolygon(vertex,'green');
+            console.log(letter);
+        }
+        if (38 == arrowButton) // JavaScript Key Code dla strzałki do góry na klawiaturze to 38
+        {
+            translateVertex(vertex,[0,-5]);
+		    clear_canvas();
+            fillPolygon(vertex,'green');
+        }
+        if (39 == arrowButton) // JavaScript Key Code dla strzałki w prawo na klawiaturze to 39
+        {
+            translateVertex(vertex,[5,0]);
+		    clear_canvas();
+            fillPolygon(vertex,'green');
+        }
+        if (40 === arrowButton) // JavaScript Key Code dla strzałki do dołu na klawiaturze to 40
+        {
+            translateVertex(vertex,[0,5]);
+		    clear_canvas();
+            fillPolygon(vertex,'green');
+        }
+        return false;
+        }
+
         function pokaztekst() {                                   
         canvas=document.getElementById("canvas");
         if(!canvas.getContext){return;}
         txt=canvas.getContext("2d");
 
         txt.font = "italic bold 50px Arial"; // Dobór czcionki
-        txt.fillText("Psy i koty są fajne", 10, 60); // Wypełniony tekst w pozycji x y
+        txt.fillText("Wiatraki są fajne", 10, 60); // Wypełniony tekst w pozycji x y
 
         txt.font = "italic bold 30px Arial";
-        txt.strokeText("Czasami koty są fajniejsze", 30, 140); // Obrysowany tekst w pozycji x y
+        txt.strokeText("Czasami śmigła są fajniejsze", 30, 140); // Obrysowany tekst w pozycji x y
 
         txt.font = "normal 40px Arial";
-        txt.fillText("a czasami psy", 230, 180);
+        txt.fillText("a czasami kołowrotki", 230, 180);
         }
 
     </script>
 </head>
 
-<body>
+<!-- Atrybut onkeyup powoduje uruchomienie naszej funkcji po tym jak zwolnimy wciśnięty guzik -->
+<!-- Można by tu też użyć atrybutu onkeydown to wtedy funkcja uruchomiłaby się przy naciśnięciu guzika -->
+<body onkeyup="keyDown(event)"> 
+    
     <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
-    <canvas id="canvas" width='900' height='900' style='background:rgb(241, 236, 179)'></canvas>
+    <canvas id="canvas" width='700' height='700' style='background:rgb(241, 236, 179)'></canvas>
+
     <button onclick="startAnimation();">START</button>
+    <button onclick="stopAnimation();">STOP</button>
     <button onclick="pokaztekst();">TEKST</button>
+    <button onclick="clear_canvas();">CLEAR</button>
+    <button onclick="zoomPlus();">ZOOM+</button>
+    
 </body>
 </html>
