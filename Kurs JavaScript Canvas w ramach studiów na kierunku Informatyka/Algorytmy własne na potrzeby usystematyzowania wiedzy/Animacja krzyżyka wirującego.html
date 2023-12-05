@@ -17,7 +17,23 @@
         var canvas;   // Deklaracja obiektu "płótno" 
         var c;        // Na płótnie wyświetlana jest grafika
         var txt;      // Na płótnie wyświetlany jest tekst
-        var vertex = [[350,350],[360,350],[360,360],[350,360],[350,370],[340,370],[340,360],[330,360],[330,350],[340,350],[340,340],[350,340]];
+        
+        var center = [345,355];     // Środek wiatraka
+        var vertex =                // Tablica z wierzchołkami wiatraka
+        [
+            [center[0]+5,center[1]-5],
+            [center[0]+15,center[1]-5],
+            [center[0]+15,center[1]+5],
+            [center[0]+5,center[1]+5],
+            [center[0]+5,center[1]+15],
+            [center[0]-5,center[1]+15],
+            [center[0]-5,center[1]+5],
+            [center[0]-15,center[1]+5],
+            [center[0]-15,center[1]-5],
+            [center[0]-5,center[1]-5],
+            [center[0]-5,center[1]-15],
+            [center[0]+5,center[1]-15]
+        ];
 
 
         function clear_canvas() {		                // Funkcja czyszcząca płótno
@@ -73,7 +89,7 @@
 
 
         function rotatePolygon() {          // Funkcja obracania wielokąta
-        rotateVertex([345,355],vertex);     // Obrót tablicy "vertex" wokół punktu "[345,355]"
+        rotateVertex(center,vertex);   // Obrót tablicy "vertex" wokół punktu "[345,355]"
         clear_canvas();                     // Funkcja czyszcząca płótno
         fillPolygon(vertex,'green');        // Funkcja wypełniająca kolorem wielobok
 
@@ -97,20 +113,50 @@
         }
 
 
-        function scale(v, s) { // Skalowanie ("v" to tablica wierzchołków a "s" to skala)
-        for (var i = 0; i < v.length; i++) {
-            for (var j = 0; j < v[i].length; j++) {
-                v[i][j] *= s;
-            }
-        }
-        return v;
+        function zoom(s) { // Zoomowanie ("s" to parametr przybliżania i oddalania względem punktu obrotu)
+        vertex[0]=[center[0]+5*s,center[1]-5*s];
+        vertex[1]=[center[0]+15*s,center[1]-5*s];
+        vertex[2]=[center[0]+15*s,center[1]+5*s];
+        vertex[3]=[center[0]+5*s,center[1]+5*s];
+        vertex[4]=[center[0]+5*s,center[1]+15*s];
+        vertex[5]=[center[0]-5*s,center[1]+15*s];
+        vertex[6]=[center[0]-5*s,center[1]+5*s];
+        vertex[7]=[center[0]-15*s,center[1]+5*s];
+        vertex[8]=[center[0]-15*s,center[1]-5*s];
+        vertex[9]=[center[0]-5*s,center[1]-5*s];
+        vertex[10]=[center[0]-5*s,center[1]-15*s];
+        vertex[11]=[center[0]+5*s,center[1]-15*s];
         }
 
 
-        function zoomPlus() { //zoom s++
+        function zoomPlus() { // Zoom+
 	    stopAnimation();
         clear_canvas();
-        scale(vertex, 1);
+        zoom(2);
+	    startAnimation();
+	    }
+
+
+        function zoomPlusPlus() { // Zoom++
+	    stopAnimation();
+        clear_canvas();
+        zoom(4);
+	    startAnimation();
+	    }
+
+
+        function zoomPlusPlusPlus() { // Zoom+++
+	    stopAnimation();
+        clear_canvas();
+        zoom(8);
+	    startAnimation();
+	    }
+
+
+        function zoomMinus() { // Reset zoom
+	    stopAnimation();
+        clear_canvas();
+        zoom(-1);
 	    startAnimation();
 	    }
 
@@ -134,6 +180,12 @@
         // Tablica b pojedynczego punktu musi wyglądać np. tak: [0,-5]
         }
     
+        /* Zmiana położenia środka obrotu */
+        function centerPointMove(m,n) {
+            m[0]=m[0]+n[0];
+            m[1]=m[1]+n[1];
+        }
+
 
         function keyDown(e) {  // Funkcja przypisująca zdarzenia do klawiszy // Sterowanie kwadratem za pomoca klawiatury
         
@@ -147,6 +199,7 @@
         if (37 == arrowButton) // JavaScript Key Code dla strzałki w lewo na klawiaturze to 37
         {
             translateVertex(vertex,[-5,0]);
+            centerPointMove(center,[-5,0]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
             console.log(letter);
@@ -154,24 +207,29 @@
         if (38 == arrowButton) // JavaScript Key Code dla strzałki do góry na klawiaturze to 38
         {
             translateVertex(vertex,[0,-5]);
+            centerPointMove(center,[0,-5]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
         }
         if (39 == arrowButton) // JavaScript Key Code dla strzałki w prawo na klawiaturze to 39
         {
             translateVertex(vertex,[5,0]);
+            centerPointMove(center,[5,0]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
         }
         if (40 === arrowButton) // JavaScript Key Code dla strzałki do dołu na klawiaturze to 40
         {
             translateVertex(vertex,[0,5]);
+            centerPointMove(center,[0,5]);
 		    clear_canvas();
             fillPolygon(vertex,'green');
         }
         return false;
         }
 
+
+        /* Dodawanie tekstu */
         function pokaztekst() {                                   
         canvas=document.getElementById("canvas");
         if(!canvas.getContext){return;}
@@ -196,12 +254,18 @@
     
     <!-- Określamy wymiary płótna, na którym będą rysowane obrazy -->
     <canvas id="canvas" width='700' height='700' style='background:rgb(241, 236, 179)'></canvas>
-
+    <br>
     <button onclick="startAnimation();">START</button>
     <button onclick="stopAnimation();">STOP</button>
-    <button onclick="pokaztekst();">TEKST</button>
-    <button onclick="clear_canvas();">CLEAR</button>
-    <button onclick="zoomPlus();">ZOOM+</button>
-    
+    <button onclick="pokaztekst();">POKAŻ TEKST</button>
+    <button onclick="clear_canvas();">CLEAR CANVAS</button>
+    <button onclick="zoomPlus();">ZOOM +</button>
+    <button onclick="zoomPlusPlus();">ZOOM ++</button>
+    <button onclick="zoomPlusPlusPlus();">ZOOM +++</button>
+    <button onclick="zoomMinus();">RESET ZOOM</button>
+    <br>
+    <span>&#8594; przesuń krzyżyk w prawo </span><span>&#8595; przesuń krzyżyk w dół </span>
+    <span>&#8592; przesuń krzyżyk w lewo </span><span>&#8593; przesuń krzyżyk w górę </span>
+
 </body>
 </html>
