@@ -127,83 +127,239 @@ function rotateArray(v,a,angle,axis) {
     return w; 
 }    
 
-/* Obiekt nr 1 - wiatrak */
-var cube = [ [1, 1, 3], [2, 1, 3], [2, 1, 4], [1, 1, 4],  [1, 2, 3], [2, 2, 3], [2, 2, 4], [1, 2, 4],  [-1,0.5,2.5], [-1,0.5,4.5], [-1,2.5,4.5], [-1,2.5,2.5],  [4,0.5,2.5], [4,0.5,4.5], [4,2.5,4.5], [4,2.5,2.5],  [0.5,-1,2.5], [2.5,-1,2.5], [2.5,-1,4.5], [0.5,-1,4.5],  [0.5,4,2.5], [2.5,4,2.5], [2.5,4,4.5], [0.5,4,4.5],  ];
-var v = translateArray(scaleArray(cube, [1.5,1.5,1.5],100),[200,300,200]);   // Rzutowanie do 2D, skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
+/* Obiekt nr 1 - śmigło duże */
+var cube = [
+    [1, 2, 3], [2, 2, 3], [2, 2, 4], [1, 2, 4],  [1, 2, 3], [2, 2, 3], [2, 2, 4], [1, 2, 4], // Środek obrotu to punkt [1.5, 2, 3.5]
+    [-1,1.7,3], [-1,1.7,4], [-1,2,4], [-1,2,3],
+    [4,1.7,3], [4,1.7,4], [4,2,4], [4,2,3],
+    [1, 1.7, 1], [2, 1.7, 1], [1, 2, 1], [2, 2, 1],
+    [2, 1.7, 6], [1, 1.7, 6], [2, 2, 6], [1, 2, 6],
+    ];
+
+// Środek obrotu dużego śmigła to punkt [1.5, 2, 3.5], a więc musimy sprawić żeby pokrywał się on z czubkiem rdzenia wirnika.
+// Musimy zatem przesunąć śmigło do punktu [1.5, 2, 2.5], który to punkt jest czubkiem rdzenia wirnika.
+cube = translateArray(cube, [0,0,-1]);
+
+var v = translateArray(scaleArray(cube, [1.5,1.5,1.5],100),[450,450,200]);   // Skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
 
 /* Funkcja rysująca statyczny obiekt nr 1 */
 function drawObject(v) {  
+    
+    /* Rdzeń wirnika śmigła dużego */
     for (var i = 0; i < 3; i++) { line3D(v[i], v[i + 1],"green"); }  
     line3D(v[3], v[0],"green");   
-    
     for (var i = 4; i < 7; i++) { line3D(v[i], v[i + 1],"green"); }  
     line3D(v[7], v[4],"green");   
-    
     for (var i = 0; i < 4; i++) { line3D(v[i], v[i + 4],"green"); }  
-    for (var i = 8; i < 11; i++) { line3D(v[i], v[i + 1],"green"); } 
     
+    /* Łopatka śmigła dużego nr 1 */
+    for (var i = 8; i < 11; i++) { line3D(v[i], v[i + 1],"green"); } 
     line3D(v[11],v[8],"green");
     line3D(v[0],v[8],"coral"); 
     line3D(v[3],v[9],"coral"); 
     line3D(v[7],v[10],"coral"); 
     line3D(v[4],v[11],"coral");  
     
+    /* Łopatka śmigła dużego nr 2 */
     for (var i = 12; i < 15; i++) { line3D(v[i], v[i + 1],"green"); } 
-    
-    line3D(v[15], v[12],"green");  
+    line3D(v[15],v[12],"green");  
     line3D(v[1],v[12],"coral"); 
     line3D(v[2],v[13],"coral"); 
     line3D(v[6],v[14],"coral"); 
     line3D(v[5],v[15],"coral");  
     
-    for (var i = 16; i < 19; i++) { line3D(v[i], v[i + 1],"green"); } 
-    
-    line3D(v[19], v[16],"green");  
+    /* Łopatka śmigła dużego nr 3 */
+    line3D(v[19],v[18],"green");  
+    line3D(v[19],v[17],"green");  
+    line3D(v[16],v[17],"green");  
+    line3D(v[16],v[18],"green");  
     line3D(v[0],v[16],"coral"); 
     line3D(v[1],v[17],"coral"); 
-    line3D(v[2],v[18],"coral"); 
-    line3D(v[3],v[19],"coral");  
+    line3D(v[7],v[18],"coral"); 
+    line3D(v[6],v[19],"coral"); 
     
-    for (var i = 20; i < 23; i++) { line3D(v[i], v[i + 1],"green"); } 
+    /* Łopatka śmigła dużego nr 4 */
+    line3D(v[23],v[22],"green");  
+    line3D(v[23],v[21],"green");  
+    line3D(v[20],v[21],"green");  
+    line3D(v[20],v[22],"green");  
+    line3D(v[2],v[20],"coral"); 
+    line3D(v[3],v[21],"coral"); 
+    line3D(v[5],v[22],"coral"); 
+    line3D(v[4],v[23],"coral");
+
+    /* Przez przecięcie tych linii przechodzi oś obrotu wirnika równoległa do osi Y */
+    line3D(v[4],v[6],"coral"); 
+    line3D(v[5],v[7],"coral"); 
     
-    line3D(v[23], v[20],"green");  
-    line3D(v[4],v[20],"coral"); 
-    line3D(v[5],v[21],"coral"); 
-    line3D(v[6],v[22],"coral"); 
-    line3D(v[7],v[23],"coral");  
 }  
 
-/* Obiekt nr 2 - domek */
-var cube1 = [ [1, 1, 3], [3, 1, 3], [3, 1, 4], [1, 1, 4],  [1, 2, 3], [3, 2, 3], [3, 2, 4], [1, 2, 4],  [1, 0, 3.5], [3, 0, 3.5] ];  
-var w = translateArray(scaleArray(cube1, [1.5,1.5,1.5],100),[700,300,100]);  // Rzutowanie do 2D, skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
+/* Obiekt nr 2 - szkielet helikoptera */
+var cube2 = [
+[1.5, 2, 2.5], [1.5, 2.5, 2.5], // Rdzeń wirnika śmigła dużego (biały)
+[1, 3, 3], [2, 3, 3], [1, 3, 2], [2, 3, 2], // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere (niebieski)
+[0, 3, 4], [3, 3, 4], [0, 3, 1], [3, 3, 1], // Dach helikoptera (czarny)
+[0, 4, 4], [3, 4, 4], [0, 4, 1], [3, 4, 1], // Podwozie (szary)
+[-3, 3, 2.5], // Ogon helikoptera (purpurowy)
+[-3, 3, 2], // Rdzeń wirnika śmigła małego (biały)
+[5, 4, 2.5], // Kadłub (purpurowy)
+[0.5, 4.5, 4], [2.5, 4.5, 4], [0.5, 4.5, 1], [2.5, 4.5, 1], // Płozy (szary)
+];  
+var w = translateArray(scaleArray(cube2, [1.5,1.5,1.5],100),[450,450,200]);  // Skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
 
 /* Funkcja rysująca statyczny obiekt nr 2 */
 function drawW() {  
-    for (var i = 0; i < 3; i++) { line3D(w[i], w[i + 1], "yellow"); }  
-    line3D(w[3], w[0], "yellow");
     
-    for (var i = 4; i < 7; i++) { line3D(w[i], w[i + 1],"brown"); }
-    line3D(w[7], w[4], "brown");
+    // Rdzeń wirnika śmigła dużego (biały)
+    line3D(w[0],w[1],"white");  
     
-    for (var i = 0; i < 4; i++) { line3D(w[i], w[i + 4], "orange");  }
-    line3D(w[0],w[8],"white");
-    line3D(w[3],w[8],"white");
-    line3D(w[1],w[9],"white"); 
-    line3D(w[2],w[9],"white"); 
-    line3D(w[8],w[9],"white");  
+    // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere (niebieski)
+    line3D(w[2],w[3],"blue");  
+    line3D(w[3],w[5],"blue");  
+    line3D(w[5],w[4],"blue");  
+    line3D(w[2],w[4],"blue");
+    
+    // Łącznik rdzenia wirnika ze szkieletem helikoptere (czerwony) 
+    line3D(w[1],w[2],"red"); 
+    line3D(w[1],w[3],"red"); 
+    line3D(w[1],w[4],"red"); 
+    line3D(w[1],w[5],"red");
+
+    // Dach helikoptera (czarny)
+    line3D(w[6],w[7],"black");  
+    line3D(w[7],w[9],"black");  
+    line3D(w[9],w[8],"black");  
+    line3D(w[6],w[8],"black");
+
+    // Podwozie (szary)
+    line3D(w[10],w[11],"grey");  
+    line3D(w[11],w[13],"grey");  
+    line3D(w[13],w[12],"grey");  
+    line3D(w[10],w[12],"grey");
+
+    // Ściany kabiny (szary)
+    line3D(w[6],w[10],"green");  
+    line3D(w[7],w[11],"green");  
+    line3D(w[9],w[13],"green");  
+    line3D(w[8],w[12],"green");
+
+    // Ogon helikoptera
+    line3D(w[14],w[12],"purple");
+    line3D(w[14],w[10],"purple");
+    line3D(w[14],w[8],"purple");
+    line3D(w[14],w[6],"purple");
+
+    // Rdzeń wirnika śmigła małego (biały)
+    line3D(w[14],w[15],"white");
+
+    // Kadłub (purpurowy)
+    line3D(w[16],w[7],"purple");
+    line3D(w[16],w[9],"purple");
+    line3D(w[16],w[13],"purple");
+    line3D(w[16],w[11],"purple");
+
+    // Płozy (szary)
+    line3D(w[17],w[18],"orange");   
+    line3D(w[20],w[19],"orange");
+    line3D(w[19],w[12],"orange");
+    line3D(w[17],w[10],"orange");
 }   
+
+/* Obiekt nr 3 - śmigło małe */
+var cube3 = [
+    [1, 1.7, 3], [2, 1.7, 3], [2, 1.7, 4], [1, 1.7, 4],  [1, 2, 3], [2, 2, 3], [2, 2, 4], [1, 2, 4],
+    [0.5,1.7,3], [0.5,1.7,4], [0.5,2,4], [0.5,2,3],
+    [2.5,1.7,3], [2.5,1.7,4], [2.5,2,4], [2.5,2,3],
+    [1, 1.7, 2.5], [2, 1.7, 2.5], [1, 2, 2.5], [2, 2, 2.5],
+    [2, 1.7, 4.5], [1, 1.7, 4.5], [2, 2, 4.5], [1, 2, 4.5],
+];
+
+// Środek obrotu małego śmigła to początkowo punkt [1.5, 2, 3.5], a więc musimy sprawić żeby pokrywał się on z czubkiem rdzenia wirnika śmigła dużego.
+// Musimy zatem przesunąć śmigło małe do punktu [1.5, 2, 2.5], który to punkt jest czubkiem rdzenia wirnika śmigła dużego.
+cube3 = translateArray(cube3, [0,0,-1]);
+
+// Teraz oba śmigła się pokrywają i należy przenieść śmigło małe do czubka rdzenia na ogonie helikoptera.
+// Koniec rdzenia wirnika śmigła małego to punkt [-3, 3, 2], a więc dokonujemy przesunięcia.
+cube3 = translateArray(cube3, [-4.5,1,-0.5]);
+
+// Obracamy śmigło małe względem końca rdzenia wirnika o kąt 90 stopni względem osi równoległej do osi X.
+cube3 = rotateArray(cube3,[-3, 3, 2],90,0);
+
+var vv = translateArray(scaleArray(cube3, [1.5,1.5,1.5],100),[450,450,200]); // Skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
+
+
+
+/* Funkcja rysująca obiekt nr 3 */
+function drawObject(vv) {  
+    
+    /* Rdzeń wirnika śmigła małego */
+    for (var i = 0; i < 3; i++) { line3D(vv[i], vv[i + 1],"green"); }  
+    line3D(vv[3], vv[0],"green");   
+    for (var i = 4; i < 7; i++) { line3D(vv[i], vv[i + 1],"green"); }  
+    line3D(vv[7], vv[4],"green");   
+    for (var i = 0; i < 4; i++) { line3D(vv[i], vv[i + 4],"green"); }  
+    
+    /* Łopatka śmigła małego nr 1 */
+    for (var i = 8; i < 11; i++) { line3D(vv[i], vv[i + 1],"green"); } 
+    line3D(vv[11],vv[8],"green");
+    line3D(vv[0],vv[8],"coral"); 
+    line3D(vv[3],vv[9],"coral"); 
+    line3D(vv[7],vv[10],"coral"); 
+    line3D(vv[4],vv[11],"coral");  
+    
+    /* Łopatka śmigła małego nr 2 */
+    for (var i = 12; i < 15; i++) { line3D(vv[i], vv[i + 1],"green"); } 
+    line3D(vv[15],vv[12],"green");  
+    line3D(vv[1],vv[12],"coral"); 
+    line3D(vv[2],vv[13],"coral"); 
+    line3D(vv[6],vv[14],"coral"); 
+    line3D(vv[5],vv[15],"coral");  
+    
+    /* Łopatka śmigła małego nr 3 */
+    line3D(vv[19],vv[18],"green");  
+    line3D(vv[19],vv[17],"green");  
+    line3D(vv[16],vv[17],"green");  
+    line3D(vv[16],vv[18],"green");  
+    line3D(vv[0],vv[16],"coral"); 
+    line3D(vv[1],vv[17],"coral"); 
+    line3D(vv[7],vv[18],"coral"); 
+    line3D(vv[6],vv[19],"coral"); 
+    
+    /* Łopatka śmigła małego nr 4 */
+    line3D(vv[23],vv[22],"green");  
+    line3D(vv[23],vv[21],"green");  
+    line3D(vv[20],vv[21],"green");  
+    line3D(vv[20],vv[22],"green");  
+    line3D(vv[2],vv[20],"coral"); 
+    line3D(vv[3],vv[21],"coral"); 
+    line3D(vv[5],vv[22],"coral"); 
+    line3D(vv[4],vv[23],"coral");
+
+    /* Przez przecięcie tych linii przechodzi oś obrotu wirnika równoległa do osi Y */
+    /* Powyższe stwierdzenie tyczy się sytuacji gdy tablica cube 3 nie jest jeszcze obrócona o 90 stopni */
+    line3D(vv[4],vv[6],"coral"); 
+    line3D(vv[5],vv[7],"coral"); 
+    
+}
 
 /* Funkcja czyszcząca canvas i następnie rysująca statyczne obiekty nr 1 i nr 2 */
 function draw() { 
     cleanCanvas(); 
     drawW(); 
-    drawObject(v); 
+    drawObject(v);
+    drawObject(vv); 
 }    
 
 /* Funkcja obracająca obiekt nr 1 i rysująca obiekt nr 1 i obiekt nr 2 */
 function rotateObject(angle, axis) { 
     var q=[(v[0][0]+v[6][0])/2,(v[0][1]+v[6][1])/2,(v[0][2]+v[6][2])/2];    // Punkt w 3D przez który przechodzi oś obrotu axis 
     v=rotateArray(v, q, angle, axis);                                       // Funkcja obracająca tablicą punktów tworzących obiekt nr 1
+    draw();                                                                 // Funkcja rysująca obiekt nr 1 oraz obiekt nr 2
+}  
+
+function rotateObject3(angle, axis) { 
+    var q=[(vv[0][0]+vv[6][0])/2,(vv[0][1]+vv[6][1])/2,(vv[0][2]+vv[6][2])/2];    // Punkt w 3D przez który przechodzi oś obrotu axis 
+    vv=rotateArray(vv, q, angle, axis);                                       // Funkcja obracająca tablicą punktów tworzących obiekt nr 1
     draw();                                                                 // Funkcja rysująca obiekt nr 1 oraz obiekt nr 2
 }  
 
@@ -237,11 +393,25 @@ function startRotationZ() {
     rotZ = setInterval('rotateObject(-6,2)', 50); 
 }   
 
+/* Rotacja obiektu nr 3 czyli małego śmigła */
+function startRotationZ3() { 
+    stopAnimation(); 
+    rotZ = setInterval('rotateObject3(-6,2)', 50); 
+}
+
+/* Rotacja dwóch śmigieł jednocześnie */
+function startRotationYZ3() { 
+    stopAnimation(); 
+    rotY = setInterval('rotateObject(-6,1)', 50); 
+    rotZ = setInterval('rotateObject3(-6,2)', 50); 
+}
+
 /* Wywołująca na ekran obraz obiektu nr 1 w skali s */
 /* Skalowanie odbywa się względem punktu q o współrzędnych dla przestrzeni 3D */
 function scaleObject(s) { 
-    var q=[(v[0][0]+v[6][0])/2,(v[0][1]+v[6][1])/2,(v[0][2]+v[6][2])/2]; // Punkt q względem którego skalujemy
-    v = scaleArray(v, q, s); draw(); 
+    var q=[(v[0][0]+v[6][0])/2,(v[0][1]+v[6][1])/2,(v[0][2]+v[6][2])/2]; // Środek wirnika, czyli punkt q względem którego skalujemy
+    v = scaleArray(v, q, s); 
+    draw(); 
 }   
 
 function keyDownHandler(e) {   // Funkcja przypisująca zdarzenia do klawiszy // Sterowanie kwadratem za pomoca klawiatury
@@ -263,8 +433,9 @@ function keyDownHandler(e) {   // Funkcja przypisująca zdarzenia do klawiszy //
 /* Funkcja przywracająca obraz obiektów nr 1 i nr 2 do widoku początkowego */
 function restoreSettings() { 
     stopAnimation(); 
-    v = translateArray(scaleArray(cube, [1.5,1.5,1.5],100),[200,300,200]); 
-    w = translateArray(scaleArray(cube1, [1.5,1.5,1.5],100),[700,300,100]); 
+    v = translateArray(scaleArray(cube, [1.5,1.5,1.5],100),[450,450,200]); 
+    w = translateArray(scaleArray(cube2, [1.5,1.5,1.5],100),[450,450,200]);
+    vv = translateArray(scaleArray(cube3, [1.5,1.5,1.5],100),[450,450,200]);
     d=700; 
     draw(); 
 }  
