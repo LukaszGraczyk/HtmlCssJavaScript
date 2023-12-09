@@ -199,48 +199,48 @@ function drawObject(v) {
 
 /* Obiekt nr 2 - szkielet helikoptera */
 var cube2 = [
-[1.5, 2, 2.5], [1.5, 2.5, 2.5], // Rdzeń wirnika śmigła dużego (biały)
-[1, 3, 3], [2, 3, 3], [1, 3, 2], [2, 3, 2], // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere (niebieski)
-[0, 3, 4], [3, 3, 4], [0, 3, 1], [3, 3, 1], // Dach helikoptera (czarny)
-[0, 4, 4], [3, 4, 4], [0, 4, 1], [3, 4, 1], // Podwozie (szary)
-[-3, 3, 2.5], // Ogon helikoptera (purpurowy)
-[-3, 3, 2], // Rdzeń wirnika śmigła małego (biały)
+[1.5, 2, 2.5], [1.5, 2.5, 2.5], // Rdzeń wirnika śmigła dużego
+[1, 3, 3], [2, 3, 3], [1, 3, 2], [2, 3, 2], // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere
+[0, 3, 4], [3, 3, 4], [0, 3, 1], [3, 3, 1], // Dach helikoptera
+[0, 4, 4], [3, 4, 4], [0, 4, 1], [3, 4, 1], // Podwozie
+[-3, 3, 2.5], // Ogon helikoptera
+[-3, 3, 2], // Rdzeń wirnika śmigła małego
 [5, 4, 2.5], // Kadłub (purpurowy)
-[0.5, 4.5, 4], [2.5, 4.5, 4], [0.5, 4.5, 1], [2.5, 4.5, 1], [1.5, 4.5, 4], [1.5, 4.5, 1]// Płozy (szary)
+[0.5, 4.5, 4], [2.5, 4.5, 4], [0.5, 4.5, 1], [2.5, 4.5, 1], [1.5, 4.5, 4], [1.5, 4.5, 1]// Płozy
 ];  
 var w = translateArray(scaleArray(cube2, [1.5,1.5,1.5],100),[450,450,200]);  // Skalowanie i przesunięcie obiektu żeby był dobrze widoczny na ekranie 
 
 /* Funkcja rysująca statyczny obiekt nr 2 */
 function drawW() {  
     
-    // Rdzeń wirnika śmigła dużego (biały)
+    // Rdzeń wirnika śmigła dużego
     line3D(w[0],w[1],"white");  
     
-    // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere (niebieski)
+    // Podstawa łącznik rdzenia wirnika ze szkieletem helikoptere
     line3D(w[2],w[3],"blue");  
     line3D(w[3],w[5],"blue");  
     line3D(w[5],w[4],"blue");  
     line3D(w[2],w[4],"blue");
     
-    // Łącznik rdzenia wirnika ze szkieletem helikoptere (czerwony) 
+    // Łącznik rdzenia wirnika ze szkieletem helikoptere
     line3D(w[1],w[2],"yellow"); 
     line3D(w[1],w[3],"yellow"); 
     line3D(w[1],w[4],"yellow"); 
     line3D(w[1],w[5],"yellow");
 
-    // Dach helikoptera (czarny)
+    // Dach helikoptera
     line3D(w[6],w[7],"brown");  
     line3D(w[7],w[9],"brown");  
     line3D(w[9],w[8],"brown");  
     line3D(w[6],w[8],"brown");
 
-    // Podwozie (szary)
+    // Podwozie
     line3D(w[10],w[11],"grey");  
     line3D(w[11],w[13],"grey");  
     line3D(w[13],w[12],"grey");  
     line3D(w[10],w[12],"grey");
 
-    // Ściany kabiny (szary)
+    // Ściany kabiny
     line3D(w[6],w[10],"green");  
     line3D(w[7],w[11],"green");  
     line3D(w[9],w[13],"green");  
@@ -252,16 +252,16 @@ function drawW() {
     line3D(w[14],w[8],"purple");
     line3D(w[14],w[6],"purple");
 
-    // Rdzeń wirnika śmigła małego (biały)
+    // Rdzeń wirnika śmigła małego
     line3D(w[14],w[15],"white");
 
-    // Kadłub (purpurowy)
+    // Kadłub
     line3D(w[16],w[7],"purple");
     line3D(w[16],w[9],"purple");
     line3D(w[16],w[13],"purple");
     line3D(w[16],w[11],"purple");
 
-    // Płozy (szary)
+    // Płozy
     line3D(w[17],w[18],"orange");   
     line3D(w[20],w[19],"orange");
     line3D(w[19],w[12],"orange");
@@ -364,8 +364,8 @@ function rotateObject(angle, axis) {
 
 function rotateObject3(angle, axis) { 
     var q=[(vvv[0][0]+vvv[6][0])/2,(vvv[0][1]+vvv[6][1])/2,(vvv[0][2]+vvv[6][2])/2];    // Punkt w 3D przez który przechodzi oś obrotu axis 
-    vvv=rotateArray(vvv, q, angle, axis);                                       // Funkcja obracająca tablicą punktów tworzących obiekt nr 1
-    draw();                                                                 // Funkcja rysująca obiekt nr 1 oraz obiekt nr 2
+    vvv=rotateArray(vvv, q, angle, axis);                                               // Funkcja obracająca tablicą punktów tworzących obiekt nr 1
+    draw();                                                                             // Funkcja rysująca obiekt nr 1 oraz obiekt nr 2
 }  
 
 var rotX,rotY,rotZ;  // Animacje z ustaleniem przedziału czasowego (time interval)
