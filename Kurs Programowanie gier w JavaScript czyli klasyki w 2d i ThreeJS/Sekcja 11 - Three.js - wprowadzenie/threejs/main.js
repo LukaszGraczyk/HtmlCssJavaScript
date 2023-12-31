@@ -2,7 +2,7 @@
 import * as THREE from 'three';
 
 // Scena, do której dodajemy obiekty, światła, kamerę i efekty.
-let sceme = new THREE.Scene();
+let scene = new THREE.Scene();
 
 // Kamera perspektywiczna
 let camera = new THREE.PerspectiveCamera(
@@ -41,3 +41,37 @@ let renderer = new THREE.WebGLRenderer();
 
 // Dostosowanie canvas do szerokości i wysokości ekranu.
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Dodanie automatyczne canvas do body.
+document.body.appendChild(renderer.domElement);
+
+// Przykładowy sześcian o bokach 1,1,1.
+// BoxGeometry() to predefiniowana klasa do tworzenia sześcianów.
+let geometry = new THREE.BoxGeometry(1,1,1);
+
+// Tekstura, kolor sześcianu.
+let material = new THREE.MeshBasicMaterial({
+    color: 0x00ff00   
+});
+
+// Siatka Mesh, na której montujemy geometrię i materiał.
+let cube = new THREE.Mesh(geometry,material);
+
+// Dodanie bryły do sceny.
+scene.add(cube);
+
+// Automatyczne dostosowywanie się wyświetlania na canvas przy zmianie rozmiaru okna.
+window.addEventListener("resize", (e) => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Renderowanie sceny.
+function render () {
+    cube.rotation.y += 0.01;        // Rotacja bryły wokół osi y.
+    renderer.render(scene,camera);
+    requestAnimationFrame(render);
+}
+
+render();
