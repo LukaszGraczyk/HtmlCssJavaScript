@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GeometryHelper } from './GeometryHelper.js';
 import { TextHelper } from './TextHelper.js';
+import { OrbitControls } from './OrbitControls.js';
 		
 // Scena, do której dodajemy obiekty, światła, kamerę i efekty.
 let scene = new THREE.Scene();
@@ -54,8 +55,10 @@ window.addEventListener("resize", (e) => {
 });
 
 // Tworzymy nowe instancje klas.
-const geometryHelper = new GeometryHelper();
-const textHelper = new TextHelper();
+const geometryHelper = new GeometryHelper();							// Bryły przestrzenne
+const textHelper = new TextHelper();									// Tekst trójwymiarowy
+const gridXZ = new THREE.GridHelper(9,9); 								// Siatka pomocnicza grid
+const orbitControls = new OrbitControls(camera,renderer.domElement); 	// Przekazujemy domElement ponieważ potrzebujemy zdażeń myszy
 
 // Powołujemy do życia nowe odsłony obiektów geometrycznych.
 let cube1 = geometryHelper.createCube({color: 0xff0000, wireframe: true, numSegments: 7});
@@ -66,7 +69,7 @@ let cone1 = geometryHelper.createCone({wireframe: true});
 // Powołujemy do życia nowe odsłony obiektów tekstowych.
 let text3d = null;
 textHelper.create3dText({
-	str: "Kula",
+	str: "Cube",
 	callbackReady: function( readyText3d ) {
 		text3d = readyText3d;
 		scene.add(text3d);
@@ -76,11 +79,14 @@ textHelper.create3dText({
 	}
 });
 
-const color = 0xffffff;
-const intensity = 1;
-const light = new THREE.DirectionalLight(color,intensity);
-light.position.set(10,15,15);
-light.target.position.set(0,0,0);
+// Konfiguracja źródła światła.
+const color = 0xffffff;				// Kolor światła
+const intensity = 1;				// Intensywność światła
+const light = new THREE.DirectionalLight(color,intensity);	// Światło skierowane
+light.position.set(10,15,15);		// Pozycja światła
+light.target.position.set(0,0,0); 	// Pozycja oświetlanego przez światło punktu
+
+// Dodanie światła do sceny.
 scene.add(light);
 scene.add(light.target);
 	
@@ -90,10 +96,14 @@ scene.add(sphere1);
 scene.add(cylinder1);
 scene.add(cone1);
 
+// Dodanie płaszczyzny siatki do sceny.
+scene.add(gridXZ);
+
 // Lokalizowanie poszczególnych elementów sceny w przestrzeni 3D względem układu współrzędnych xyz.
 sphere1.position.x = 2; 	// Przesunięcie po osi x.
 cylinder1.position.x = 4; 	
-cone1.position.x = -2; 		
+cone1.position.x = -2;
+gridXZ.position.y = -2; 		
 
 // Renderowanie sceny.
 function render () {
@@ -113,4 +123,5 @@ function render () {
 	requestAnimationFrame(render);
 }
 
+// Wywołanie funkcji render.
 render();
