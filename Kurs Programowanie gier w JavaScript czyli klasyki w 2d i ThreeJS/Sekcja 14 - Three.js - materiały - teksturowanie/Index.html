@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		body { margin: 0; }
+		#info {
+		position: absolute;
+		top: 10px;
+		width: 100%;
+		text-align: center;
+		z-index: 100;
+		font-size: small;
+		font-family: Arial, Helvetica, sans-serif;
+		color: white;
+		display: block;}
+	</style>
+
+	<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+	<!-- Tutaj zawsze trzeba aktualizować numer wersji 0.160.0 na najbardziej aktualny. -->
+	<!-- Ten fragment kodu umożliwia wczytywanie zawartości pakietu "three" bez konieczności ściągania go. -->
+	<script type="importmap">
+		{
+		  "imports": {
+			"three": "https://unpkg.com/three@0.160.0/build/three.module.js", 
+			"three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+		  	}
+		}
+	</script>
+
+</head>
+
+<body>
+	<!-- Zapis type="module" jest konieczny przy importowaniu -->
+	<script type="module" src="Main.js"></script>
+	<script type="module" src="GeometryHelper.js"></script>
+	<script type="module" src="TextHelper.js"></script>
+	
+	<div id="info">
+		Instrukcja obsługi:
+		<br>
+		Odczytaj wzory poruszając się w przestrzeni myszką!
+		<br>
+		Przytrzymując LPM i poruszając myszką, obracasz obrazem względem punktu obrotu.
+		<br>
+		Przytrzymując PPM i poruszając myszką, przesuwasz obraz zmieniając przy tym jednocześnie punkt obrotu.
+	</div>
+</body>
+</html>
