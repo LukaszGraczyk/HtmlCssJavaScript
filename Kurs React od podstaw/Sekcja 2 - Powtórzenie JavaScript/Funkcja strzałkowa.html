@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Funkcja strzałkowa tworzona jest na zasadzie funkcji anonimowej, czyli bez nazwy.
+        // Jeżeli mamy tylko jeden parametr item to nie trzeba pisać go w nawiasach.
+        // Jeżeli zawartoś nawiasów klamrowych może zmieścić się w jednej linii, w ramach jednego wyrażenia, to możemy te nawiasy pominąć.
+        // Funkcja strzałkowa jest funkcją, która domyślnie zwraca, czyli występuje automatyczne return, jeżeli zawartość nawiasów klamrowych
+        // może zmieścić się w jednej linii, w ramach jednego wyrażenia.
+        // Jeżeli funkcja w nawiasach klamrowych, czyli wewnątrz bloku posiada kilka wyrażeń, instrukcji to trzeba pisać return,
+        // gdy chcemy coś zwrócić ponieważ wtedy nie działa automatyczne return.
+
+        // Funkcja strzałkowa:
+        const fn1 = (item) => {
+            console.log("Podany argument to: " + item)
+        }
+
+        fn1("Hejo!")
+
+        // Odpowiednik powyższej funkcji strzałkowej w postaci funkcji anonimowej.
+        const fn2 = function(item) {
+            console.log("Podany argument to: " + item)
+        }
+
+        fn2("Hejo!!")
+
+
+        // Funkcja strzałkowa z pominięciem nawiasów.
+        const fn3 = item => console.log("Podany argument to: " + item)
+
+        fn3("Hejo!!!")
+
+
+    </script>
+</body>
+</html>
