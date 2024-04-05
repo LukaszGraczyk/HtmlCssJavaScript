@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const users = ["adam", "bogdan", "czarek", "darek"];
+
+        // Metoda map zwraca nową tablicę o tej samej długości.
+
+        // Przykład 1:
+        // Litery na pozycji 0 są zapisane do tablicy jako duże.
+        
+        const usersFirstLetterUpperCase = users.map(user => user[0].toUpperCase()); // Nazwa user jest dowolnym przyjętym wyrażeniem
+        console.log(usersFirstLetterUpperCase);
+
+        // Jeżeli zastosujemy zapis z nawiasem {} czyli:
+        // users.map(user => {user[0].toUpperCase()}) to musimy ręcznie wypisać return.
+
+        // Przykład 2:
+        // Liczby zawarte w tablicy będą pomnożone przez 2 w nowej tablicy.
+
+        const numbers = [2,3,4];
+        const x2numbers = numbers.map(number => number*2);
+        console.log(x2numbers);
+
+
+
+    </script>
+</body>
+</html>
