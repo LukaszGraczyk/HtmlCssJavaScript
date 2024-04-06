@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Metoda forEach pracuje na tablicy i nie zwraca nowej tablicy.
+
+        // Przykład 1:
+        // Wypisanie wieku powiększonego o 1 rok dla każdego wieku w tablicy.
+        // Stosujemy zapis template string ze znacznikami "grawis" oraz dolarem, żeby wpisywać kod JS do string bezpośrednio.
+
+        const usersAge = [20,21,23,43];
+        usersAge.forEach(age => console.log(`W przyszłym roku użytkownik będzie miał ${age + 1} lat`)); // Nazwa age dowolna
+
+        // Przykład 2:
+        // Sumawanie lat wszystkich użytkowników.
+
+        let usersTotalAge = 0;
+        usersAge.forEach(age => usersTotalAge += age);
+        console.log(usersTotalAge); // Suma lat wszystkich uzytkowników to 107.
+
+        // Przykład 3:
+        // Wypisanie numerów użytkowników i ich wieku na stronie html.
+
+        const section = document.createElement('section');
+
+        usersAge.forEach((age,index,array) => {
+            section.innerHTML += (
+                `<h1> Użytkownik ${index + 1}</h1>
+                <p>wiek: ${age}</p>`
+            )
+
+            if(index === array.length - 1) {
+                document.body.appendChild(section);
+            }
+        })
+
+    </script>
+</body>
+</html>

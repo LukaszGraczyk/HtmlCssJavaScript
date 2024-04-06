@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Przykład 1:
+
+        const users = ["adam", "bogdan", "czarek", "darek"];
+
+        // Filtorowanie tablicy w poszukiwaniu elementów.
+        const NameWith6Letter = users.filter(user => user.length === 6);
+        
+        // Zwracana jest nowa tablica z imionami składającymi się tylko z 6 liter.
+        console.log(NameWith6Letter); 
+
+        
+        // Przykład 2:
+
+        // Filtrowanie imion, w któych występuje litera k.
+        // Jeżeli nie występuje to nie ma jej na indeksie 0,1,2, ... czyli wystarczy, że indeks litery jest > -1.
+        const NameWithLetterK = users.filter(user => user.indexOf("k") > -1)
+        console.log(NameWithLetterK); 
+
+    </script>
+    
+</body>
+</html>
