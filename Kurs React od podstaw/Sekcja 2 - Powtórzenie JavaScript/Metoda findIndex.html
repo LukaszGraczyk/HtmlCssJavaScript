@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Metoda findIndex zwraca indeks elementu, który jako pierwszy zwróci true.
+        // Jeśli w żadnej iteracji nie będzie spełniony warunek, to zwróci -1.
+
+        const customers = [
+            {name: "Adam", age: 67},
+            {name: "Basia", age: 27},
+            {name: "Marta", age: 17}
+        ];
+
+        const isUsersNotAdult = customers.findIndex(customer => customer.age < 18);
+        console.log(isUsersNotAdult);
+
+    </script>
+</body>
+</html>
