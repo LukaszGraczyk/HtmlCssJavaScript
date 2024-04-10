@@ -16,12 +16,14 @@
         // Jeżeli funkcja w nawiasach klamrowych, czyli wewnątrz bloku posiada kilka wyrażeń, instrukcji to trzeba pisać return,
         // gdy chcemy coś zwrócić ponieważ wtedy nie działa automatyczne return.
 
+
         // Funkcja strzałkowa:
         const fn1 = (item) => {
             console.log("Podany argument to: " + item)
         }
 
         fn1("Hejo!")
+
 
         // Odpowiednik powyższej funkcji strzałkowej w postaci funkcji anonimowej.
         const fn2 = function(item) {
@@ -36,6 +38,13 @@
 
         fn3("Hejo!!!")
 
+        
+        // Funkcja strzałkowa z użyciem return.
+        const fn4 = function(item) {
+            return "Podany argument to: " + item
+        }
+
+        console.log(fn4("Hejo!!!!"))
 
     </script>
 </body>

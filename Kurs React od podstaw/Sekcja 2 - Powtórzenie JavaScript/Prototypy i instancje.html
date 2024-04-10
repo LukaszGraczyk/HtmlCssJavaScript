@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Country {
+            constructor(name) {
+                this.name = name; // Właściwość każdej instancji
+                this.showName = () => console.log(this.name); // Metoda każdej instancji
+            }
+
+            // Metoda na zewnątrz konstruktora nie stanowiąca właściwości instancji obiektu.
+            showCountryName() {
+                console.log(`Nazwa kraju to: ${this.name}`);
+            }
+
+            // Wszystkie metody tworzone w klasie znajdują się w prototypie klasy, do której dostęp mają wszystkie instancje.
+        }
+
+        const Poland = new Country('Polska');
+        const Italy = new Country('Włochy');
+
+        Poland.showCountryName(); // Konsola pokaże: Nazwa kraju to Polska
+        Italy.showCountryName(); // Konsola pokaże: Nazwa kraju to Włochy
+
+        Poland.showName(); // Konsola pokaże: Polska
+        Italy.showName(); // Konsola pokaże: Włochy
+
+    </script>
+</body>
+</html>

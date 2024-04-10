@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            showName() {console.log("Imię osoby to: " + this.name)}
+        }
+
+        class Student extends Person {
+            constructor(name = "", degrees = []) {      // Po znaku = umieszczamy wartości domyślne czyli np. puste tablicę [].
+                super(name);
+                this.degrees = degrees;
+            }
+
+            showDegrees() {
+                const completed = this.degrees.filter(degree => degree > 2);    // Metoda filter tworzy tablicę z przefiltrowanych elementów.
+                console.log(`Student ${this.name} ma stopnie: ${this.degrees} i zaliczył już ${completed.length} przedmioty`);
+            }
+        }
+        
+        const ula = new Person ("Urszula");
+        ula.showName();
+
+        const janek = new Student ("Jan", [2,3,4,5,2,3]);
+        janek.showDegrees();
+        janek.showName();
+
+    </script>
+</body>
+</html>

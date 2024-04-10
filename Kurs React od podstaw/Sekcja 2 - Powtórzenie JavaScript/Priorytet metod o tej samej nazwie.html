@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Country {
+            constructor(name) {
+                this.name;
+                this.showCountryName = () => console.log(`Nazwa kraju to: ${name}`);
+            }
+
+            showCountryName() {
+            console.log("Nazwa państwa to: " + this.name);
+            }
+        } 
+
+        const Poland = new Country("Polska");
+
+        Poland.showCountryName(); // Pierszeństwo ma metoda bedąca właściwością obiektu w konstruktorze, czyli w instancji obiektu.
+
+        // Konsola wyświetli: Nazwa kraju to: Polska.
+    </script>
+</body>
+</html>
