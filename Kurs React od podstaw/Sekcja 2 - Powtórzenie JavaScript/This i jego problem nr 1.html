@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const dog = {
+            name: "rocky",
+            showName() {
+                console.log("Imię psa to " + this.name);
+            }
+        }
+
+        dog.showName() // Imię psa to rocky
+
+        const dogName = dog.showName;
+        dogName()   // Konsola nie wyświetla imienia psa
+    </script>
+</body>
+</html>

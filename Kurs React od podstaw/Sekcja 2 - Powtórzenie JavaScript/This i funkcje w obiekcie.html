@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Mechanizm this polega na wiązaniu słowa kluczowego this z obiektem.
+        // Wiązanie to jest towrzone w chwili wywołania funkcji.
+
+        // Tu nie zapisano klasy obiektu. Domyślnie jest to klasa window.
+        // Obiekt car z kilkoma metodami zapisu funkcji wewnątrz obiektu.
+        const car = {
+            brand: "Opel",
+            age: 2018,
+            color: "red",
+            
+            showAge() {
+                console.log(`samochód z ${this.age}`);
+            },
+
+            showBrand: function () {
+                console.log(`samochód marki ${this.brand}`);
+            },
+
+            // Funkcja strzałkowa dziedziczy this po window, nie tworzy własnego this tak jak w przypadku zwykłej funkcji.
+            // Funkcja strzałkowa dzidziczy this z obiektu nadrzędnego w stosunku do tego, w którym się znajduje.
+            // Dlatego konsola pokazuje kolor jako undefined. Color nie występuje w window.
+            showColor: () => {
+                console.log(`samochód ma kolor ${this.color}`);
+            }
+
+        }
+
+        car.showAge();
+        car.showBrand();
+        car.showColor();
+
+    </script>
+</body>
+</html>
