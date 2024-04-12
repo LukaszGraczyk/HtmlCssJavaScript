@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const cat = {
+            kids: ["lucek", "łapciuch"],
+            showKidsNames() {
+                console.log(`Kot ma następujące potomstwo: ${this.kids}`);
+                const showKidsNumber = () => {console.log(this.kids.length)}
+                
+                // Zapisanie funkcji bez bind(this) jest możliwe stosując funkcję strzałkową
+                // This będzie wtedy dziedziczone z poziomu wyżej, a nie z window.
+                // Dzieje sie tak gdy mamy funkcję zagnieżdżoną w funkcji.
+                
+                showKidsNumber();
+            }
+        }
+
+        cat.showKidsNames();
+
+    </script>
+</body>
+</html>

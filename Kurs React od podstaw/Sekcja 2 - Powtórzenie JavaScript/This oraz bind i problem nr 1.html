@@ -17,8 +17,11 @@
 
         dog.showName() // Imię psa to rocky
 
-        const dogName = dog.showName;
-        dogName()   // Konsola nie wyświetla imienia psa
+        const dogName = dog.showName.bind(dog); // Konsola nie wyświetla imienia psa, jeżeli nie użyjemy bind(dog). 
+        dogName(); // Wymusiliśmy przypisanie this do obiektu dog dla tej metody.
+
+        // Zawsze jak będziemy chcieli użyć metody showName to będzie ona miałą przypisany this do obiektu dog.
+        
     </script>
 </body>
 </html>

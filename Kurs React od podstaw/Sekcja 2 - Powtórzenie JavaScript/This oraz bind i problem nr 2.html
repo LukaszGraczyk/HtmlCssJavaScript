@@ -13,11 +13,12 @@
             showKidsNames() {
                 console.log(`Kot ma następujące potomstwo: ${this.kids}`);
                 const showKidsNumber = function() {
-                    console.log(this.kids.lenght);
-                }
-
-                // Wywołanie tej metody powoduje, że this zadziała w odniesieniu do window. Nastąpi błąd.
-                // Dzieje sie tak gdy mamy funkcję zagnieżdżoną w funkcji.
+                    console.log(this.kids.length);
+                }.bind(this);
+                
+                // Wywołanie tej metody bez bind(this) powoduje, że this zadziała w odniesieniu do window. Nastąpi błąd.
+                // Dzieje sie tak gdy mamy funkcję zagnieżdżoną w funkcji. Zatem konieczny jest bind(this).
+                
                 showKidsNumber();
             }
         }
