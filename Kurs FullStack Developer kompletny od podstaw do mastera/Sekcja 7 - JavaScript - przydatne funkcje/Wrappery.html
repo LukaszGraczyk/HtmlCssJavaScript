@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        Prymitywy jak number czy string mają swoje odpowiedniki w postaci obiektów.
+        Możemy wykorzystać ich konstruktory tzw. wrappery aby mieć możliwość wykorzystania przydatnych metod.
+        Dodatkowo JavaScript robi ten proces automatycznie, gdy wywołamy metodę to prymityw jest konwertowany 
+        na obiekt i po wszystkim wraca do swojej prymitywnej postaci.
+        */
+
+        // Ma miejsce automateczna konwersja prymitywu do obiektu na potrzebę użycia metody,
+        // a następnie kolejna konwersja obiektu znów do prymitywu.
+
+        let str = "Hello!";         // Prymityw
+        str = str.toUpperCase();    // Metoda zastosowana na prymitywie pomimo że nie jest obiektem
+        console.log(str);
+        console.log(str.length);
+
+        let txt = new String("Hello world!");   // Obiekt
+        txt = txt.toUpperCase();                // Metoda zastosowana na obiekcie
+        console.log(txt)
+
+        /*
+        Prymitywy mają swoją reprezentację w postaci obiektów, czyli wrapperów.
+        */
+
+    </script>
+</body>
+</html>

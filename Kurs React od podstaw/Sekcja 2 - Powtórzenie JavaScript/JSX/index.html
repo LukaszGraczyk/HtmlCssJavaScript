@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX czyli składnia React do tworzenia struktury</title>
+    <!-- Plik ze stylami CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+    <!-- Element html pełniący rolę kontenera dla aplikacji React -->
+    <div id="root"></div>
+    
+    <!-- Biblioteka React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    
+    <!-- Bibiloteka React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel - kompilowanie JSX i ES6 do ES5 -  zwrócić uwagę na atrybut type bo domyślnie jest type='text/javascript' -->
+    <!-- Nie korzystamy na produkcji (tylko podczas develpomentu) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+
+    <!-- Nasz kod -->
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

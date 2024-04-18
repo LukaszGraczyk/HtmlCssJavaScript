@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    /*
+    W JavaScript tylko obiekty i tablice tak naprawdę nadpisują swoją wartość, czyli są mutowalne.
+    Natomiast prymitywy, gdy są zmieniane to w praktyce kasowana jest poprzednia wartość i przypisywana nowa,
+    czyli nazwa zmiennej/stałej wskazuje na nowe miejsce w pamięci dla prymitywów.
+    */
+
+    let str = "Hello!";
+    str[0] = "!";           // Prymitywy są niemutowalne
+    console.log(str[0]);    // Konsola pokaże "H"
+
+    str = str + "!!!!";
+    console.log(str);       // Konsola pokaże "Hello!!!!!""
+        
+    // Typy złożone są mutowalne
+    let arr = [1, 2, 3];
+    arr[0] = 100;
+    console.log(arr);       // Konsola pokaże "[100, 2, 3]"
+
+    </script>
+</body>
+</html>

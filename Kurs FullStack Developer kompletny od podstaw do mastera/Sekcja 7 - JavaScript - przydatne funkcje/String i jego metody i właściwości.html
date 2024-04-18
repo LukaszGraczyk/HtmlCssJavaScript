@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let str = "Hello ".concat("World!");        // Łączenie stringów
+        console.log(str);
+
+        str = str.toUpperCase();                    // Modyfikacja stringa by litery były duże
+        console.log(str);
+
+        str = str.toLowerCase();                    // Modyfikacja stringa by litery były małe
+        console.log(str);
+
+        console.log( str.charAt(1) );               // Wywołanie n-tego znaku w stringu
+        console.log( str.charCodeAt(1) );           // Wywłanie unikodu dla n-tego znaku w stringu (101)
+        
+        let txt = "A B C D E";
+        let arr = txt.split(" ");
+        console.log(arr);
+
+        str = arr.join("|");
+        console.log(str); // A|B|C|D|E
+
+        str = "A|B|C|D|E";
+        str = str.replace("C", "test");
+        console.log(str); // A|B|test|D|E
+
+        str = "A|B|C|D|E|A|B|C|D|E|A|B|C|D|E";
+        str = str.replace(/C/g, "test");
+        console.log(str); // A|B|test|D|E|A|B|test|D|E|A|B|test|D|E
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let num = 123.12;                                   // Typ number w wersji prymitywu
+
+        let num2 = new Number(234.23);                      // Typ number jako obiekt
+
+        console.log(Number.MAX_SAFE_INTEGER);               // Największy możliwy int
+        console.log(Number.MIN_SAFE_INTEGER);               // Najmniejszy możliwy int
+
+        console.log(Number.MAX_VALUE);                      // Największa maksymalna wartość jaka może być użyta
+        console.log(Number.MIN_VALUE);                      // Najmniejsza minimalna wartość jaka może być użyta
+
+        console.log(Number.parseInt("123") + 1000 );        // Parsowanie stringa do int
+        console.log(Number.parseFloat("123.678") + 1000 );  // Parsowanie stringa do float
+        console.log(Number.isInteger(6875));                // Sprawdzenie czy liczba to int (true)
+        console.log(Number.isInteger(6875.685));            // Sprawdzenie czy liczba to int (false)
+
+        let a = 1 / 0;                          // Infinity uzyskujemy dzieląc przez zero
+        console.log(a);                         // Wynik to infinity
+        console.log(Number.isFinite(a));        // Czy liczba jest skończona (false)
+        console.log(Number.isFinite(34));       // Czy liczba jest nieskończona (true)
+
+        console.log( Math.round(12.56) );       // Zaokraglanie (13)
+        console.log( Math.round(12.16) );       // Zaokraglanie (12)
+        console.log( Math.floor(12.96) );       // Podłoga (12)
+        console.log( Math.ceil(12.01) );        // Sufit (13)
+        console.log( Math.random() );           // Losowa liczba z zakresu (0,1)
+        console.log( Math.random() * 5 );       // Losowa liczba z zakresu 0 < x < 5
+        console.log( Math.sqrt(16) );           // Pierwiastek drugiego stopnia (4)
+
+        console.log( 123.456789.toFixed(2) );   // Zaokrąglenie do 2 miejsc po przecinku
+        console.log( 123.456789.toFixed(3) );   // Zaokrąglenie do 3 miejsc po przecinku
+        console.log( 123.456789.toFixed(4) );   // Zaokrąglenie do 4 miejsc po przecinku
+
+    </script>
+</body>
+</html>
