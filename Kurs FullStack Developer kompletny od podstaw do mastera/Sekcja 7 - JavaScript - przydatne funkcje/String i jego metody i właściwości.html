@@ -21,19 +21,18 @@
         console.log( str.charCodeAt(1) );           // Wywłanie unikodu dla n-tego znaku w stringu (101)
         
         let txt = "A B C D E";
-        let arr = txt.split(" ");
+        let arr = txt.split(" ");                   // Zamiana stringa na tabelę gdzie zawartość cudzysłowia określa podział ze względu na spację.
         console.log(arr);
 
-        str = arr.join("|");
-        console.log(str); // A|B|C|D|E
+        str = arr.join("|");                        // Zamiana tablicy na string z uwzględnieniem znaku rozdzielającego symbole
+        console.log(str);                           // Wynik to: A|B|C|D|E
 
-        str = "A|B|C|D|E";
-        str = str.replace("C", "test");
-        console.log(str); // A|B|test|D|E
+        str = str.replace("C", "test");             // Podmiana symbolu w stringu
+        console.log(str);                           // Wynik to: A|B|test|D|E           
 
-        str = "A|B|C|D|E|A|B|C|D|E|A|B|C|D|E";
+        str = "A|B|C|D|E|A|B|C|D|E|A|B|C|D|E";      // Podmiana symbolu w stringu gdzie element powtarza się wielokrotnie
         str = str.replace(/C/g, "test");
-        console.log(str); // A|B|test|D|E|A|B|test|D|E|A|B|test|D|E
+        console.log(str);                           // Wynik to: A|B|test|D|E|A|B|test|D|E|A|B|test|D|E
 
     </script>
 </body>
