@@ -1,0 +1,3 @@
+Zawartość tekstowego
+pliku testowego nr 1
+o rozszerzeniu txt
